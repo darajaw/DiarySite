@@ -21,10 +21,27 @@
 
         <!-- Navigation bar -->
         <nav>
+            <a href="index.html">Home</a>    
+            <a href="search.html">Search</a>
+            <a href="view.html">View Entries</a>
         </nav>
         <hr>
     </header>
 
+    <div id="entry_div">
+        <form action="entry.php" method="post">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="entry">Entry:</label>
+            <textarea id="entry" name="entry" rows="10" cols="50" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <footer><hr>
         <p id="foot_text">&copy; 2024 Daraja Williams & Stephanie Prystupa-Maule</p>

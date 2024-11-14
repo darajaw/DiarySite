@@ -1,0 +1,54 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#entry_form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mood_img{
+    width: 10vh;
+    height: 10vh;
+}
+
+#mood_div{
+    display: flex;
+    gap: 20px;
+}
+
+.radiowrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5vh;
+    position: relative;
+}
+
+.radiowrapper input{
+    visibility:hidden; 
+    width:0;
+}
+
+.mood_title {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 80%;
+}
+
+label:hover + .mood_title {
+    display: block; /* Shows the mood title when hovering over the label */
+}
+
+.radiowrapper label:hover {
+    background-color: aqua;
+}
+
+.radiowrapper input:checked + label + .mood_title {
+    background-color: aqua;
+    font-weight:bold; 
+    display: block;
+}

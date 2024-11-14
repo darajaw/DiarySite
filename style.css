@@ -13,6 +13,8 @@ body{
 .mood_img{
     width: 10vh;
     height: 10vh;
+    border: 5px solid #000000;
+    border-radius: 25px;
 }
 
 #mood_div{
@@ -23,7 +25,7 @@ body{
 .radiowrapper{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     margin-bottom: 5vh;
     position: relative;
 }
@@ -43,12 +45,7 @@ label:hover + .mood_title {
     display: block; /* Shows the mood title when hovering over the label */
 }
 
-.radiowrapper label:hover {
-    background-color: aqua;
-}
-
 .radiowrapper input:checked + label + .mood_title {
-    background-color: aqua;
     font-weight:bold; 
     display: block;
 }

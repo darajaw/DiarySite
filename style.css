@@ -20,13 +20,13 @@ body{
 #mood_div{
     display: flex;
     gap: 20px;
+    margin-bottom: 5vh;
 }
 
 .radiowrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 5vh;
     position: relative;
 }
 

@@ -1,9 +1,8 @@
 
 //Variable declaration for the form input fields
-let title = document.querySelector("#title");
+let title = document.querySelector("#entry_title");
 let date = document.querySelector("#date");
 let entry = document.querySelector("#entry");
-
 
 let dateCheck = /^(0[1-9]|1[0-2])\/(0[1-9]|1[0-2])\/\d{4}$/; //regex used for date validaiton
 
@@ -21,15 +20,15 @@ let entryErrorMsg="Please create a valid entry";
 
 let titleError=document.createElement('p');
 titleError.setAttribute("class","warning");
-document.querySelectorAll("#title").append(titleError);
+document.querySelectorAll(".textfield")[0].append(titleError);
 
 let dateError=document.createElement('p');
 dateError.setAttribute("class","warning");
-document.querySelectorAll("#date").append(dateError);
+document.querySelectorAll(".textfield")[1].append(dateError);
 
 let entryError=document.createElement('p');
 entryError.setAttribute("class","warning");
-document.querySelectorAll("#entry").append(entryError);
+document.querySelectorAll(".textfield")[2].append(entryError);
 
 /* 
 * Function to validate the form
@@ -53,7 +52,7 @@ function validate(){
         entryError.textContent = entryErrorMsg;
         valid = false;
     }
-   
+
     return valid;
 
 }

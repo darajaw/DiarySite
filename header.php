@@ -16,7 +16,7 @@
     <!-- Navigation bar -->
     <nav>
         <a href="index.html">Home</a>
-        <a href="entry.php">New Entry</a>    
+        <a href="newEntry.php">New Entry</a>    
         <a href="search.php">Search</a>
         <a href="view.html">View Entries</a>
     </nav>

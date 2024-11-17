@@ -20,7 +20,7 @@
     <?php include("header.php");?>
 
     <div id="entry_div">
-        <form action="entry.php" method="get" id="entry_form" onsubmit="return validate()">
+        <form action="create.php" method="POST" id="entry_form">
 
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>

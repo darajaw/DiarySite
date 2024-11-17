@@ -52,14 +52,14 @@ DROP TABLE IF EXISTS entries;
 CREATE TABLE `entries` (
   `entry_id` bigint NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `date` date NOT NULL, -- removed Unique constraint, because diff users can make entries on same day
+  `date` date NOT NULL,
   `title` varchar(100) NOT NULL,
   `entry_text` varchar(500) NOT NULL,
   `entry_mood` tinyint(1) NOT NULL,
   PRIMARY KEY (`entry_id`),
   FOREIGN KEY(`user_id`) REFERENCES `users`(`user_id`),
-  FOREIGN KEY(`entry_mood`) REFERENCES `moods`(`mood_id`)
-  -- CHECK (1<=`mood`<=5) no need to check if foreign key?
+  FOREIGN KEY(`entry_mood`) REFERENCES `moods`(`mood_id`),
+  UNIQUE(`user_id`, `date`) -- only one entry per day per user allowed
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ; 
 
 /* Insert Test Value into Entries */
@@ -67,7 +67,7 @@ INSERT INTO `entries` (`entry_id`, `user_id`, `date`, `title`, `entry_text`, `en
 VALUES
 (1, 3, '2024-11-09', 'Test Neutral', 'This is a test entry', 3),
 (2, 1, '2024-11-10', 'Test Bad', 'This is a test entry', 4),
-(3, 2,'2024-11-11', 'Test Terrible', 'This is a test entry', 5),
+(3, 2,'2024-11-10', 'Test Terrible', 'This is a test entry', 5),
 (4, 1, '2024-11-12', 'Test Amazing', 'This is a test entry', 1),
 (5, 2, '2024-11-13', 'Test Good', 'This is a test entry', 2)
 ;

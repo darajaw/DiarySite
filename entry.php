@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!--Student Names: Daraja Williams & Stephanie Prystupa-Maule-->
-<!--File Name:entry.html-->
+<!--File Name:entry.php-->
 <!--Date Created: November 13, 2024-->
 <!--Description: This page is used for users to create new entries.-->
 
@@ -16,17 +16,8 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="title">Journal Entry</h1>
-
-        <!-- Navigation bar -->
-        <nav>
-            <a href="index.html">Home</a>    
-            <a href="search.html">Search</a>
-            <a href="view.html">View Entries</a>
-        </nav>
-        <hr>
-    </header>
+    <!-- insert the header code -->
+    <?php include("header.php");?>
 
     <div id="entry_div">
         <form action="entry.php" method="post" id="entry_form">
@@ -77,9 +68,10 @@
         </form>
     </div>
 
-    <footer><hr>
-        <p id="foot_text">&copy; 2024 Daraja Williams & Stephanie Prystupa-Maule</p>
-    </footer>
     
+
+    <!-- add the footer here -->
+    <?php include("footer.php"); ?>
+
 </body>
 </html>

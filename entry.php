@@ -34,8 +34,7 @@
             <input type="text" id="title" name="title" required>
 
             <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>   
-            <!-- note: MySQL insert statement will need date in YYYY-MM-DD format-->          
+            <input type="date" id="date" name="date" required>             
                 
             <label for="entry">Entry:</label>
             <textarea id="entry" name="entry" rows="10" cols="50" required></textarea>

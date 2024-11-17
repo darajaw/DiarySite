@@ -16,17 +16,8 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="title">Entry Search</h1>
-
-        <!-- Navigation bar -->
-        <nav>
-            <a href="index.html">Home</a>    
-            <a href="search.html">Search</a>
-            <a href="view.html">View Entries</a>
-        </nav>
-        <hr>
-    </header>
+    <!-- insert the header code -->
+    <?php include("header.php");?>
 
     <div id="search_div">
         <form action="entry.php" method="post" id="entry_form">
@@ -51,9 +42,8 @@
 
     </div>
 
-    <footer><hr>
-        <p id="foot_text">&copy; 2024 Daraja Williams & Stephanie Prystupa-Maule</p>
-    </footer>
+    <!-- add the footer here -->
+    <?php include("footer.php"); ?>
     
 </body>
 </html>

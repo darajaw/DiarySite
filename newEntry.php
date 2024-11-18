@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entry Page</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="js/entryScript.js" defer></script>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
             <label for="entry">Entry:</label>
             <textarea id="entry" name="entry" rows="10" cols="50"></textarea>
             </div>
-            
+
             <p>How are you feeling today?</p>
             <div id="mood_div">
 

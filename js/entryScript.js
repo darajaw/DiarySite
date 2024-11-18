@@ -4,7 +4,7 @@ let title = document.querySelector("#entry_title");
 let date = document.querySelector("#date");
 let entry = document.querySelector("#entry");
 
-let dateCheck = /^(0[1-9]|1[0-2])\/(0[1-9]|1[0-2])\/\d{4}$/; //regex used for date validaiton
+let dateCheck = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/; //regex used for date validaiton
 
 //Error messages for each input field
 let defaultMsg="";

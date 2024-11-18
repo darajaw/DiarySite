@@ -17,7 +17,7 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="newEntry.php">New Entry</a>    
-        <a href="search.php">Search</a>
+        <a href="searchEntry.php">Search</a>
         <a href="view.html">View Entries</a>
     </nav>
     <hr>

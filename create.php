@@ -4,10 +4,6 @@ require_once("database.php");
 include ("header.php");
 $db = db_connect();
 
-
-
-
-   
 // Handle form values sent by newEntry.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     $title = $_POST['entry_title']; // access the form data
@@ -24,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     $sql = "INSERT INTO entries (user_id, date, title, entry_text, entry_mood) VALUES ('1','$date','$title','$entry','$mood_id')";
     error_log($sql);
     mysqli_query($db, $sql);
-    // For INSERT statements, $result is true/false
 
+    //redirect to search page (test)
+    header("Location: search.php");
+} 
+else {
+    //redirect to newEntry page (test)
+  header("Location:  newEntry.php");
 }
+

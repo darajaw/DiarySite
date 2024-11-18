@@ -74,24 +74,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
             <button type="submit">Search</button>
         </form>
 
-        <h2><?php 
-            if ($mood == "none") {
-            echo "Results between: $start and $end";
-            } else {
-                echo "Results between: $start and $end with mood: ", ucfirst($mood);
-            }?></h2>
-        <fieldset id="results_div"> 
-            <?php  
-                foreach ($result_fetch as $row) {
-                    $id = $row[0];
-                    $date = $row[1];
-                    $title = $row[2];
-                    
-                    echo "<a href=\"editEntry.php?id=$id\">$date - $title</a> \n";
-                    echo "\n";
-                } ?>
-        </fieldset>
-
+        <!-- Display the search results -->
+        <?php if (isset($start)) { ?>
+            <h2><?php 
+                if ($mood == "none") {
+                echo "Results between: $start and $end";
+                } 
+                else {
+                    echo "Results between: $start and $end with mood: ", ucfirst($mood);
+                }?></h2>
+            <fieldset id="results_div"> 
+                <?php  
+                    foreach ($result_fetch as $row) {
+                        $id = $row[0];
+                        $date = $row[1];
+                        $title = $row[2];
+                        
+                        echo "<p><a href=\"editEntry.php?id=$id\">$date - $title</a></p>";
+                    } ?>
+            </fieldset>
+            
+        <!-- End of if statement -->
+        <?php } ?>
     </div>
 
     <!-- add the footer here -->

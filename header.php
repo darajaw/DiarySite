@@ -15,10 +15,10 @@
 
     <!-- Navigation bar -->
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.php">Home</a>
         <a href="newEntry.php">New Entry</a>    
         <a href="searchEntry.php">Search</a>
-        <a href="view.html">View Entries</a>
+        <a href="view.php">View Entries</a>
     </nav>
     <hr>
 </header>

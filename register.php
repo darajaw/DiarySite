@@ -8,10 +8,10 @@ $db = db_connect();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = $_POST['pass'];
 
     //prepare query string
-    $sql = "INSERT INTO 'users' ('user_email', 'username', 'password') VALUES ('$email', '$username', '$password')";
+    $sql = "INSERT INTO users (user_email, username, password) VALUES ('$email', '$username', '$password')";
     $result = mysqli_query( $db, $sql );
 
     // don't need following line?, no need to show user details by id after they register

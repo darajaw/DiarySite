@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS diary;
 /* Create Database */
 CREATE DATABASE diary;
 GRANT USAGE ON *.* TO 'appuser'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON journal.* TO 'appuser'@'localhost';
+GRANT ALL PRIVILEGES ON diary.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 
 USE diary;

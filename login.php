@@ -12,10 +12,10 @@
 
         $users_sql = "SELECT * FROM users"; //query to select all users
         $users_row = mysqli_query($db, $users_sql); //run query in datbase
-        $users_fetch = mysqli_fetch_all($users_row); //retrieve each row of data
-
-        foreach ($users_fetch as $user) {
-            if ($user[2] == $username && $user[3] == $password) {
+        
+        //fetch each row of the query results as a row and compare the username and password values
+        while ($user = mysqli_fetch_array($users_row)) {
+            if ($user['username'] == $username && $user['password'] == $password) {
                 $_SESSION['valid_user'] = $username;
                 $_SESSION['valid_pass'] = $password;
                 $valid = true;

@@ -22,6 +22,7 @@ session_start();
     }
     ?>
     <p><a href="login.php">Login Page</a></p>
+    <p><a href="logout.php">Logout</a></p>
     <?php include("footer.php"); ?>
 </body>
 

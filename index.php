@@ -12,7 +12,7 @@ session_start();
     <?php
     // check session variable
     if (isset($_SESSION['valid_user'])) {
-        echo '<p>Welcome ' . $_SESSION['valid_user'] . '</p>';
+        //echo '<p>Welcome ' . $_SESSION['valid_user'] . '</p>';
 
     } else {
         // echo '<p>You are not logged in.</p>';
@@ -21,6 +21,7 @@ session_start();
     }
     ?>
     <p><a href="login.php">Login Page</a></p>
+
 </body>
 
 </html>

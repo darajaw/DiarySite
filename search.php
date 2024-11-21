@@ -18,6 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
         $entry_search .= " AND date >= '$start'";
     }
 
+    //search with a end date only
+    elseif (empty($start) && !empty($end)){
+        $entry_search .= " AND date <= '$end'";
+    }
+
     //search with a start and end date
     elseif (!empty($start) && !empty($end)){
         $entry_search .= " AND date BETWEEN '$start' AND '$end'";
@@ -86,6 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
                     echo "Entries since: $start";
                 }
 
+                //results with a end date only
+                elseif (empty($start) && !empty($end)){
+                    echo "Entries before: $end";
+                }
                 //results with a start and end date
                 elseif (!empty($start) && empty($end)){
                     echo "Entries between: $start and $end";
@@ -97,12 +106,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 
             <fieldset id="results_div"> 
                 <?php  
-                    foreach ($result_fetch as $row) {
+                    if(empty($result_fetch)){
+                        echo "<p>No entries found</p>";
+                    }
+                    else{                    
+                        foreach ($result_fetch as $row) {
                         $id = $row[0];
                         $date = $row[1];
                         $title = $row[2];
                         
                         echo "<p><a href=\"editEntry.php?id=$id\">$date - $title</a></p>";
+                        }
                     } ?>
             </fieldset>
             

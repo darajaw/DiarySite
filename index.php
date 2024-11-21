@@ -15,8 +15,7 @@ confirm_login();
     <nav>
         <a href="index.php">Home</a>
         <a href="new_entry.php">New Entry</a>    
-        <a href="search.php">Search</a>
-        <a href="view.php">View Entries</a>    
+        <a href="search.php">Search</a>  
         <a href="logout.php">Logout</a>
     </nav>
     <?php include("footer.php"); ?>

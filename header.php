@@ -17,7 +17,6 @@
         <a href="index.php">Home</a>
         <a href="new_entry.php">New Entry</a>    
         <a href="search.php">Search</a>
-        <a href="view.php">View Entries</a>
     </nav>
     <hr>
 </header>

@@ -42,15 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 <!--Description: This page is used for users to create new entries.-->
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Daraja Williams & Stephanie Prystupa-Maule">        
-    <meta name="description" content="This page is used to search and filter through entries.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entry Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
 <body>
     <!-- insert the header code -->
     <?php include("header.php");?>

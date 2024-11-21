@@ -10,27 +10,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     $end = $_POST['endDate'];
     $mood = $_POST['mood'];
 
-    if ($mood == "none") {
-        $entry_search = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
-        $entry_search .= "AND date BETWEEN '$start' AND '$end'";
+    //search with no dates
+    $entry_search = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
 
-        $results = mysqli_query($db, $entry_search);
-    } 
-    
-    else {
-        $mood_sql = "SELECT mood_id FROM moods WHERE mood = \"$mood\"";
-        $mood_row = mysqli_query($db, $mood_sql);
-        $mood_fetch = mysqli_fetch_assoc($mood_row);
-        $mood_id = (int)$mood_fetch['mood_id'];
-
-        $entry_filter = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
-        $entry_filter .= "AND date BETWEEN '$start' AND '$end' AND entry_mood = '$mood_id'";
-
-        $results = mysqli_query($db, $entry_filter);
+    //search with a start date only
+    if (!empty($start) && empty($end)){
+        $entry_search .= " AND date >= '$start'";
     }
-    
-    $result_fetch = mysqli_fetch_all($results);
 
+    //search with a start and end date
+    elseif (!empty($start) && !empty($end)){
+        $entry_search .= " AND date BETWEEN '$start' AND '$end'";
+    }
+
+    //check if a mood was set to filter by
+    if (!($mood == "none")) {
+
+        $mood_sql = "SELECT mood_id FROM moods WHERE mood = \"$mood\""; //query to get the mood id
+        $mood_row = mysqli_query($db, $mood_sql); //execute the query
+        $mood_fetch = mysqli_fetch_assoc($mood_row); //fetch the resulting row
+        $mood_id = (int)$mood_fetch['mood_id']; //get the mood id value
+
+        $entry_search .= " AND entry_mood = '$mood_id'"; //add the mood id to the search query
+    }
+
+    $results = mysqli_query($db, $entry_search); //execute the search query
+    $result_fetch = mysqli_fetch_all($results); //fetch all the results
 } 
 ?>
 
@@ -69,14 +74,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
         </form>
 
         <!-- Display the search results -->
-        <?php if (isset($start)) { ?>
+        <?php if (isset($start)){ ?>
             <h2><?php 
-                if ($mood == "none") {
-                echo "Results between: $start and $end";
-                } 
-                else {
-                    echo "Results between: $start and $end with mood: ", ucfirst($mood);
-                }?></h2>
+                //results with no set dates
+                if (empty($start) && empty($end)){  
+                    echo "All Entries";
+                }
+
+                //results with a start date only
+                elseif (!empty($start) && empty($end)){  
+                    echo "Entries since: $start";
+                }
+
+                //results with a start and end date
+                elseif (!empty($start) && empty($end)){
+                    echo "Entries between: $start and $end";
+                }
+                if (!($mood == "none")) {
+                    echo " with mood: ", ucfirst($mood);
+                }
+                ?></h2>
+
             <fieldset id="results_div"> 
                 <?php  
                     foreach ($result_fetch as $row) {

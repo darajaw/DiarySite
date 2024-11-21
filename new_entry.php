@@ -27,6 +27,16 @@
     <div id="entry_div">
         <form action="create.php" method="POST" id="entry_form" onsubmit="return validate();">
 
+            <?php
+                //check if we were directed from the entry creation page
+                if (isset($_GET['id']) && $_GET['id'] == "done") { 
+                    echo "<h2>Your entry has been logged!</h2>";
+                }
+                else if (isset($_GET["id"]) && $_GET["id"] == "error") {
+                    echo "<h2>There has been an error with your entry.</h2>";
+                }
+            ?>
+
             <div class="textfield">
             <label for="entry_title">Title:</label>
             <input type="text" id="entry_title" name="entry_title">

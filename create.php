@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     mysqli_query($db, $sql);
 
     //redirect to search page (test)
-    header("Location: search.php");
+    header("Location: new_entry.php?id=done");
 } 
 else {
     //redirect to newEntry page (test)
-  header("Location:  newEntry.php");
+  header("Location:  new_entry.php?id=error");
 }
 

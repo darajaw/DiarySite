@@ -23,7 +23,7 @@
     <!-- insert the header code -->
     <?php include("header.php");?>
 
-    <div id="entry_div">
+    <div class="entry_div">
         <?php
             //check if we were directed from the entry creation page
             if (isset($_GET['id']) && $_GET['id'] == "done") { 
@@ -36,9 +36,9 @@
 
         <p class="form_heading">New Journal Entry</p>
 
-        <form action="create.php" method="POST" id="entry_form" onsubmit="return validate();">
+        <form action="create.php" method="POST" class="entry_form" onsubmit="return validate();">
         
-            <div id="entry_div">
+            <div class="entry_info">
                 <div class="textfield">
                 <label for="entry_title">Title:</label>
                 <input type="text" id="entry_title" name="entry_title">
@@ -55,7 +55,7 @@
                 </div>
             </div>
             
-            <div id="mood_div">
+            <div class="mood_div">
                 <!--<p>How are you feeling today?</p>-->
 
                 <div class="radiowrapper" id="amazing_div">
@@ -88,6 +88,7 @@
                     <p class="mood_title">Terrible</p>
                 </div>
             </div>
+
         </form>
         <button type="submit">Submit</button>
     </div>

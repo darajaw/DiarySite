@@ -9,7 +9,13 @@ body{
     font-weight: bold;
 }
 
-#entry_form{
+.entry_info{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.entry_form{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 2vw;

@@ -1,3 +1,7 @@
+<?php
+    require_once('session.php');
+?>
+
 <!DOCTYPE html>
 
 <!--Student Names: Daraja Williams & Stephanie Prystupa-Maule-->

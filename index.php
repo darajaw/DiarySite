@@ -1,6 +1,8 @@
 <?php
-session_start();
+require_once("session.php");
+confirm_login();
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,20 +11,14 @@ session_start();
 </head>
 
 <body>
-<?php include("header.php");?>
-    <?php
-    // check session variable
-    if (isset($_SESSION['valid_user'])) {
-        //echo '<p>Welcome ' . $_SESSION['valid_user'] . '</p>';
-
-    } else {
-        // echo '<p>You are not logged in.</p>';
-        // echo '<p>Only logged in members may see this page.</p>';
-        header("Location: login.php");
-    }
-    ?>
-    <p><a href="login.php">Login Page</a></p>
-    <p><a href="logout.php">Logout</a></p>
+    <h2><?php echo '<p>Welcome ' . $_SESSION['valid_user'] . '</p>'; ?></h2>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="new_entry.php">New Entry</a>    
+        <a href="search.php">Search</a>
+        <a href="view.php">View Entries</a>    
+        <a href="logout.php">Logout</a>
+    </nav>
     <?php include("footer.php"); ?>
 </body>
 

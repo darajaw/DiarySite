@@ -18,8 +18,9 @@
             if ($user['username'] == $username && $user['password'] == $password) {
                 $_SESSION['valid_user'] = $username;
                 $_SESSION['valid_pass'] = $password;
+                $_SESSION['user_id'] = $user['user_id'];
                 $valid = true;
-                echo "<h2>Logged In</h2>";
+                header('Location: index.php');
                 break;
             }
         }
@@ -39,12 +40,16 @@
     <title>Diary Login</title>
 </head>
 <body>
-    <?php include("header.php");?>
-
     <div class="formcontainer">
         <h2>My Diary Login</h2>
         <hr>
         <form name="form" action="login.php" method="POST">
+
+            <?php
+                if (isset($_GET['id']) && $_GET['id'] == "out") { //check if we were directed from the logout page
+                    echo "<h2>You have been logged out</h2>";
+                }
+            ?>
 
             <div class="textfield">
                 <label for="username">Username</label>

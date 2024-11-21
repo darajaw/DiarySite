@@ -1,11 +1,12 @@
 <?php
-
-require_once("database.php");
+require_once('session.php');
+require_once('database.php');
 include ("header.php");
 $db = db_connect();
 
 // Handle form values sent by newEntry.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
+    $user_id = $_SESSION['user_id']; // get the user id from the session
     $title = $_POST['entry_title']; // access the form data
     $date = $_POST['date'];
     $entry = $_POST['entry'];
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     $mood_id = (int)$mood_fetch['mood_id'];
 
     //prepare your query string
-    $sql = "INSERT INTO entries (user_id, date, title, entry_text, entry_mood) VALUES ('1','$date','$title','$entry','$mood_id')";
+    $sql = "INSERT INTO entries (user_id, date, title, entry_text, entry_mood) VALUES ('$user_id','$date','$title','$entry','$mood_id')";
     error_log($sql);
     mysqli_query($db, $sql);
 

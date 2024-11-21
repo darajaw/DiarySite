@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     <?php include("header.php");?>
 
     <div id="search_div">
-    <form action="searchEntry.php" method="POST" id="search_form">
+    <form action="search.php" method="POST" id="search_form">
             
             <label for="startDate">Start Date:</label>
             <input type="date" id="startDate" name="startDate"> 

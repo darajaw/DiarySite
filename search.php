@@ -1,17 +1,19 @@
 <?php
-
-require_once("database.php");
+require_once('session.php');
+require_once('database.php');
 $db = db_connect();
 
 // Handle form values sent by searchEntry.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
+    $user_id = $_SESSION['user_id']; // get the user id from the session
     $start = $_POST['startDate']; // access the form data
     $end = $_POST['endDate'];
     $mood = $_POST['mood'];
 
     if ($mood == "none") {
-        $entry_search = "SELECT entry_id,date,title FROM entries WHERE date BETWEEN '$start' AND '$end'";
-        
+        $entry_search = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
+        $entry_search .= "AND date BETWEEN '$start' AND '$end'";
+
         $results = mysqli_query($db, $entry_search);
     } 
     
@@ -21,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
         $mood_fetch = mysqli_fetch_assoc($mood_row);
         $mood_id = (int)$mood_fetch['mood_id'];
 
-        $entry_filter = "SELECT entry_id,date,title FROM entries WHERE date BETWEEN '$start' AND '$end' AND entry_mood = '$mood_id'";
+        $entry_filter = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
+        $entry_filter .= "AND date BETWEEN '$start' AND '$end' AND entry_mood = '$mood_id'";
 
         $results = mysqli_query($db, $entry_filter);
     }

@@ -1,7 +1,6 @@
 <?php
 require_once('session.php');
 require_once('database.php');
-include ("header.php");
 $db = db_connect();
 
 // Handle form values sent by newEntry.php

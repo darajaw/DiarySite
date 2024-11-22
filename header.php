@@ -12,7 +12,6 @@
 <body>
 <header>
     <h1 id="title">Smart Diary</h1>
-
     <!-- Navigation bar hello -->
     <nav>
         <a href="index.php">Home</a>

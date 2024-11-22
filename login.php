@@ -1,4 +1,8 @@
 <?php
+    //File Name:update.php 
+    //Code written by: Stephanie Prystupa-Maul
+    //Description: This page allows users to login.
+
     session_start();
     require_once('database.php');
     $db = db_connect();
@@ -46,7 +50,7 @@
         <form name="form" action="login.php" method="POST">
 
             <?php
-                if (isset($_GET['id']) && $_GET['id'] == "out") { //check if we were directed from the logout page
+                if (isset($_GET['id']) && $_GET['id'] == "out") { //check if user was redirected from the logout page
                     echo "<h2>You have been logged out</h2>";
                 }
             ?>

@@ -3,10 +3,11 @@
 <html lang="en">
 
 <head>
-  <title>Smart Diary</title>
+  <!-- header for all pages-->
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+  <meta name="author" content="Daraja Williams & Stephanie Prystupa-Maule">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
@@ -17,7 +18,6 @@
         <a href="index.php">Home</a>
         <a href="new_entry.php">New Entry</a>    
         <a href="search.php">Search</a>
-        <a href="view.php">View Entries</a>
     </nav>
     <hr>
 </header>

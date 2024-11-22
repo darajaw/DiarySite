@@ -4,21 +4,10 @@ confirm_login();
 ?>
 
 <!DOCTYPE html>
-
-<!--Student Names: Daraja Williams & Stephanie Prystupa-Maule-->
+<html>
 <!--File Name: index.php-->
-<!--Date Created: November 17th, 2024-->
-<!--Description: Landing page of Diary Website.-->
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Daraja Williams & Stephanie Prystupa-Maule">        
-    <meta name="description" content="Landing page of Diary Website.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary Home</title>
-    <link rel="stylesheet" href="style_experiment.css">
-</head>
+<!--Code written by: Stephanie Prystupa-Maul-->
+<!--Description: This is the home page for the website.-->
 
 <head>
     <title>Smart Diary Home</title>

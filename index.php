@@ -10,16 +10,24 @@ confirm_login();
 <!--Description: This is the home page for the website.-->
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Stephanie Prystupa-Maule">
     <title>Smart Diary Home</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 
 <body id="index-body" class="index-container">
 
     <header>
-        <h1 id="title">Smart Diary</h1>
-        <nav id="logout-nav">
-            <a href="logout.php">Logout</a>
-        </nav>
+        <div id="title-container">
+            <h1 id="title">Smart Diary</h1>
+        </div>
+        <div id="logout-container">
+            <nav id="logout-nav">
+                <a href="logout.php">Logout</a>
+            </nav>
+        </div>
     </header>
 
     <div class="index-container">

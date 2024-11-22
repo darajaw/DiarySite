@@ -6,7 +6,7 @@ confirm_login();
 <!DOCTYPE html>
 <html>
 <!--File Name: index.php-->
-<!--Code written by: Stephanie Prystupa-Maul-->
+<!--Code written by: Stephanie Prystupa-Maule-->
 <!--Description: This is the home page for the website.-->
 
 <head>

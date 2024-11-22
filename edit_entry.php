@@ -27,24 +27,28 @@
         include ("header.php");
         
 
-        if (!isset($_GET['id'])) { //check if we get the id
-        header("Location:  newEntry.php");
+        if (!isset($_GET['id'])) { //check if we get the ID
+            //redirect to new entry page if no ID was received
+            header("Location:  new_entry.php");
         }
-        $id = $_GET['id'];
+    
+        $id = $_GET['id']; //retrive entry ID in URL
 
-        $sql = "SELECT * FROM entries WHERE entry_id= '$id'";
+        $sql = "SELECT * FROM entries WHERE entry_id= '$id'";// query to select the entry 
 
-        $result_set = mysqli_query($db, $sql);
+        $result_set = mysqli_query($db, $sql);// run entry on database
 
-        $result = mysqli_fetch_assoc($result_set);
+        $result = mysqli_fetch_assoc($result_set);//fetch resulting row
 
+        //redirect to home page if entry user ID does not match session user ID
         if($result['user_id'] != $_SESSION['user_id']) {
             header("Location: index.php");
         }
 
+        //retrieve mood ID from entry 
         $selected_mood = $result['entry_mood'];
+    ?>
 
-  ?>
     <div class="entry_div">
     <p class="form_heading">New Journal Entry</p>
         <form action="update.php" method="POST" class="entry_form" onsubmit="return validate();">
@@ -72,7 +76,9 @@
                 <!--<p>How are you feeling today?</p>-->
                 <div class="radiowrapper" id="amazing_div">
                     <input type="radio" id="amazing" name="mood" value="amazing"
-                    <?php echo ($selected_mood == 1) ? 'checked' : ''; ?>>
+                    <?php 
+                    //if this mood was selected in the database, mark it as checked in this form
+                    echo ($selected_mood == 1) ? 'checked' : ''; ?>> 
                     <label for="amazing"><img src="images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
                     <p class="mood_title">Amazing</p>
                 </div>

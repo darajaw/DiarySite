@@ -5,6 +5,9 @@ confirm_login();
 
 <!DOCTYPE html>
 <html>
+<!--File Name: index.php-->
+<!--Code written by: Stephanie Prystupa-Maul-->
+<!--Description: This is the home page for the website.-->
 
 <head>
     <title>Smart Diary Home</title>

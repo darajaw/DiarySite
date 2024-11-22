@@ -1,20 +1,16 @@
 <?php
+    //call file to start session
     require_once('session.php');
+    confirm_login();
 ?>
 
 <!DOCTYPE html>
-
-<!--Student Names: Daraja Williams & Stephanie Prystupa-Maule-->
-<!--File Name:entry.html-->
-<!--Date Created: November 13, 2024-->
+<html lang="en">
+<!--File Name: new_entry.php-->
+<!--Code written by: Daraja Williams-->
 <!--Description: This page is used for users to create new entries.-->
 
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Daraja Williams & Stephanie Prystupa-Maule">        
-    <meta name="description" content="This page is used for users to create new entries.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entry Page</title>
     <script src="assets/entryScript.js" defer></script>
 </head>
@@ -25,17 +21,19 @@
 
     <div class="entry_div">
         <?php
-            //check if we were directed from the entry creation page
+            //check if user was redirected from the entry creation page
             if (isset($_GET['id']) && $_GET['id'] == "done") { 
+                //submission confirmation message
                 echo "<h2>Your entry has been logged!</h2>";
             }
             else if (isset($_GET["id"]) && $_GET["id"] == "error") {
+                //submission error message
                 echo "<h2>There has been an error with your entry.</h2>";
             }
         ?>
 
         <p class="form_heading">New Journal Entry</p>
-
+            
         <form action="create.php" method="POST" class="entry_form" onsubmit="return validate();">
         
             <div class="entry_info">

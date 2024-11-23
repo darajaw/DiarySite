@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 
     <div id="search-container" class="main-container">
         <div id="search-bar">
-            <form action="search.php" method="POST" id="search_form">
+            <form action="search.php" method="POST" class="search_form">
                 
                 <label for="startDate">Start Date:</label>
                 <input type="date" id="startDate" name="startDate"> 

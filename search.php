@@ -52,76 +52,91 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 <!--Description: This page is used for users to create new entries.-->
 
 <html lang="en">
-<body>
-    <!-- insert the header code -->
+
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daraja Williams">
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <script src="assets/entryScript.js" defer></script>
+    <title>Search Page</title>
+</head>
+
+<body class="main-container">
+    <!-- insert the header and navigation bar code -->
     <?php include("header.php");?>
+    <?php include("nav_bar.php");?>
 
-    <div id="search_div">
-    <form action="search.php" method="POST" id="search_form">
-            
-            <label for="startDate">Start Date:</label>
-            <input type="date" id="startDate" name="startDate"> 
-            
-            <label for="endDate">End Date:</label>
-            <input type="date" id="endDate" name="endDate"> 
-            
-            <label for="mood">Filter By Mood:</label>
-            <select  name="mood" id="mood">
-                <option value="none">None</option>
-                <option value="amazing">Amazing</option>
-                <option value="good">Good</option>
-                <option value="neutral">Neutral</option>
-                <option value="bad">Bad</option>
-                <option value="terrible">Terrible</option>
-            </select>
+    <div id="search-container" class="main-container">
+        <div id="search-bar">
+            <form action="search.php" method="POST" id="search_form">
+                
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate"> 
+                
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate"> 
+                
+                <label for="mood">Filter By Mood:</label>
+                <select  name="mood" id="mood">
+                    <option value="none">None</option>
+                    <option value="amazing">Amazing</option>
+                    <option value="good">Good</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="bad">Bad</option>
+                    <option value="terrible">Terrible</option>
+                </select>
 
-            <button type="submit">Search</button>
-        </form>
+                <button type="submit">Search</button>
+            </form>
+        </div>
 
-        <!-- Display the search results -->
-        <?php if (isset($start)){ ?>
-            <h2><?php 
-                //results with no set dates
-                if (empty($start) && empty($end)){  
-                    echo "All Entries";
-                }
-
-                //results with a start date only
-                elseif (!empty($start) && empty($end)){  
-                    echo "Entries since: $start";
-                }
-
-                //results with a end date only
-                elseif (empty($start) && !empty($end)){
-                    echo "Entries before: $end";
-                }
-                //results with a start and end date
-                elseif (!empty($start) && empty($end)){
-                    echo "Entries between: $start and $end";
-                }
-                if (!($mood == "none")) {
-                    echo " with mood: ", ucfirst($mood);
-                }
-                ?></h2>
-
-            <fieldset id="results_div"> 
-                <?php  
-                    if(empty($result_fetch)){
-                        echo "<p>No entries found</p>";
+        <div id="results-section">
+            <!-- Display the search results -->
+            <?php if (isset($start)){ ?>
+                <h2><?php 
+                    //results with no set dates
+                    if (empty($start) && empty($end)){  
+                        echo "All Entries";
                     }
-                    else{                    
-                        foreach ($result_fetch as $row) {
-                        $id = $row[0];
-                        $date = $row[1];
-                        $title = $row[2];
-                        
-                        echo "<p><a href=\"editEntry.php?id=$id\">$date - $title</a></p>";
+
+                    //results with a start date only
+                    elseif (!empty($start) && empty($end)){  
+                        echo "Entries since: $start";
+                    }
+
+                    //results with a end date only
+                    elseif (empty($start) && !empty($end)){
+                        echo "Entries before: $end";
+                    }
+                    //results with a start and end date
+                    elseif (!empty($start) && empty($end)){
+                        echo "Entries between: $start and $end";
+                    }
+                    if (!($mood == "none")) {
+                        echo " with mood: ", ucfirst($mood);
+                    }
+                    ?></h2>
+
+                <fieldset id="results_div"> 
+                    <?php  
+                        if(empty($result_fetch)){
+                            echo "<p>No entries found</p>";
                         }
-                    } ?>
-            </fieldset>
-            
-        <!-- End of if statement -->
-        <?php } ?>
+                        else{                    
+                            foreach ($result_fetch as $row) {
+                            $id = $row[0];
+                            $date = $row[1];
+                            $title = $row[2];
+                            
+                            echo "<p><a href=\"editEntry.php?id=$id\">$date - $title</a></p>";
+                            }
+                        } ?>
+                </fieldset>
+                
+            <!-- End of if statement -->
+            <?php } ?>
+        </div> 
     </div>
 
     <!-- add the footer here -->

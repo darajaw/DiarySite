@@ -11,9 +11,13 @@
 </head>
 
 <body>
-  <header>
-      <div id="title-container">
-        <h1 id="title">Smart Diary</h1>
-      </div>
-  </header>
+
+  <div id="nav-bar-container">
+    <nav id="nav-bar">
+        <a href="index.php">Home</a>
+        <a href="new_entry.php">New Entry</a>    
+        <a href="search.php">Search</a>
+    </nav>
+  </div>
+    
 </body>

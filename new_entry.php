@@ -11,15 +11,20 @@
 <!--Description: This page is used for users to create new entries.-->
 
 <head>
-    <title>Entry Page</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daraja Williams">
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="assets/entryScript.js" defer></script>
+    <title>Entry Page</title>
 </head>
 
-<body>
-    <!-- insert the header code -->
+<body class="main-container">
+    <!-- insert the header and navigation bar code -->
     <?php include("header.php");?>
+    <?php include("nav_bar.php");?>
 
-    <div class="entry_div">
+    <div id="entry_container" class="main-container">
         <?php
             //check if user was redirected from the entry creation page
             if (isset($_GET['id']) && $_GET['id'] == "done") { 
@@ -32,7 +37,7 @@
             }
         ?>
 
-        <p class="form_heading">New Journal Entry</p>
+        <h2 class="page_heading">New Journal Entry</h2>
             
         <form action="create.php" method="POST" class="entry_form" onsubmit="return validate();">
         

@@ -299,6 +299,51 @@ footer {
     align-items: center;
 }
 
+#mood_bar{
+    display: flex;
+    flex-direction: column;
+}
+
+.mood_img{
+    width: 5vh;
+    height: 5vh;
+    border: 5px solid #000000;
+    border-radius: 25px;
+}
+
+.radio_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-bottom: 1em;
+}
+
+/*.radio_wrapper input{
+    visibility:hidden; 
+    width:0;
+}
+*/
+
+#amazing_wrapper input, #good_wrapper input, #neutral_wrapper input, #bad_wrapper input, #terrible_wrapper input{
+    visibility:hidden; 
+    width:0;
+}
+
+.mood_title {
+    display: none; /* Hidden by default */
+    position: absolute;
+    left: 10%;
+}
+
+label:hover + .mood_title {
+    display: block; /* Shows the mood title when hovering over the label */
+}
+
+.radio_wrapper input:checked + label + .mood_title {
+    font-weight:bold; 
+    display: block;
+}
 
 /* Mobile styles */
 @media screen and (max-width: 700px) {

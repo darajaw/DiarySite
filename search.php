@@ -96,27 +96,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">Search Entries</h2>
 
-            <!-- Optional Search Fields -->
-            <div id="search_fields">
-                <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" name="startDate"> 
-                    
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" name="endDate"> 
-                    
-                <label for="mood">Filter By Mood:</label>
-                <select  name="mood" id="mood">
-                    <option value="none">None</option>
-                    <option value="amazing">Amazing</option>
-                    <option value="good">Good</option>
-                    <option value="neutral">Neutral</option>
-                    <option value="bad">Bad</option>
-                    <option value="terrible">Terrible</option>
-                </select>
-            </div>
+            <div id="search_bar">
+                <!-- Optional Search Fields -->
+                <div class="field_wrapper">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" name="startDate"> 
+                </div>
+                      
+                <div class="field_wrapper">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" name="endDate"> 
+                </div>
+                        
+                <div class="field_wrapper">
+                    <label for="mood">Filter By Mood:</label>
+                    <select  name="mood" id="mood">
+                        <option value="none">None</option>
+                        <option value="amazing">Amazing</option>
+                        <option value="good">Good</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="bad">Bad</option>
+                        <option value="terrible">Terrible</option>
+                    </select>
+                </div>
 
-            <div id="search_button_wrapper" class="button_wrapper">
-                <button type="submit">Search</button>
+                <div id="search_button_wrapper" class="button_wrapper">
+                    <button type="submit">Search</button>
+                </div>
             </div>
 
         </form>

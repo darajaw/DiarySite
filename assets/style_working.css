@@ -119,42 +119,52 @@ nav a:visited {
 
 /* Search Page Specifics */
 #search_form {
-    min-height: unset;
+    min-height: unset; /* merges into results box */
     margin-bottom: 0;
     border-bottom-left-radius: 0; /* adjust corners to blend box with results box */
     border-bottom-right-radius: 0;
     padding-bottom: 20px;
-
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px 30px;
-
 }
 
-#search_fields {
+#search_bar {
+    width: 100%;
+    padding-bottom: 20px;
     display: flex;
-    align-items: center;
-    gap: 20px;
+    flex-direction: row; 
+    align-items: flex-end;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* not sure what this is */
-#search_fields input,
-#search_fields select {
+#search_bar .field_wrapper {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#search_bar input,
+#search_bar select {
+    width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #A2999E;
     border-radius: 4px;
-    font-size: large;
 }
-
-
-/* #search_form .page_heading { */
-   /* display: none; /* Remove heading since it's redundant with page container heading */
-/* } */
 
 #search_button_wrapper {
-    margin: 0;
+    margin: 0; /* override general margin to fit button within search bar*/
+    padding-bottom: 0; /* override general button padding to align with search fields */
+
+    min-width: 120px;
+
+}
+
+#search_button_wrapper button {
+    margin: 0; /* override general margin to fit button within search bar*/
+    height: 37px; /* match height to search fields */
 }
 
 #results_container {
@@ -368,26 +378,16 @@ footer {
     }
 
     /* Search Page Mobile Specifics */
-    #search_form {
+
+    #search_bar {
         flex-direction: column;
-        align-items: stretch;
-        padding: 20px;
     }
 
-    #search_fields {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #search_fields label {
-        margin-bottom: 5px;
-    }
-
-    #search_button_wrapper {
+    #search_bar .field_wrapper {
         width: 100%;
     }
 
-    #search_button_wrapper button {
+    #search_button_wrapper {
         width: 100%;
     }
 
@@ -452,14 +452,6 @@ footer {
     }
 
     /* Search Page Tablet Specifics */
-    #search_fields {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    #search_fields > * {
-        width: 100%;
-    }
 
     #results_container {
         width: 95%;
@@ -522,21 +514,6 @@ footer {
     }
 
     /* Search Page Desktop Specifics */
-    #search_fields {
-        flex: 1;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    #search_fields > * {
-        flex: 1;
-        min-width: 150px;
-    }
-
-    #search_button_wrapper button {
-        height: 42px; /* height to the inputs */
-        white-space: nowrap;
-    }
 
     #results_container {
         width: 90%;

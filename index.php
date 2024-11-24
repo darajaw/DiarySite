@@ -1,13 +1,20 @@
+<!-- 
+ TODO:
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<!--File Name: index.php-->
+<!--Code written by: Stephanie Prystupa-Maule-->
+<!--Edited by: Daraja Williams -->
+<!--Description: Home/landing page for diary website.-->
+
 <?php
 require_once("session.php");
 confirm_login();
 ?>
-
-<!DOCTYPE html>
-<html>
-<!--File Name: index.php-->
-<!--Code written by: Stephanie Prystupa-Maule-->
-<!--Description: This is the home page for the website.-->
 
 <head>
     <meta charset="UTF-8">
@@ -17,46 +24,38 @@ confirm_login();
     <title>Smart Diary Home</title>
 </head>
 
-<body id="index-body" class="index-container">
+<body>
+    
+    <!-- Homepage banner only contains header (Title), as nav appears in main page contents -->
+    <div id="index_banner_container" class="banner_container"> 
+        <?php include("header.php");?>
 
-    <header id="index-header">
-        <div id="title-container">
-            <h1 id="index-title">Smart Diary</h1>
-        </div>
-        <div id="logout-container">
-            <nav id="logout-nav">
+        <div id="logout_nav_container" class="account_nav_container">
+            <nav id="logout_nav" class="account_nav">
                 <a href="logout.php">Logout</a>
             </nav>
         </div>
-    </header>
+    </div>
 
-    <div class="index-container">
-            <!-- <div id="greeting-div"> -->
-                <h2 class="page-heading"><?php echo '<p>Welcome ' . $_SESSION['valid_user'] . '!</p>'; ?></h2>
-                <h3 class="page-heading">What would you like to do?</h3>
-            <!-- </div> -->
+    <div id="index_page_cont" class="page_container"> 
 
-        <nav id="site-nav" class="index-container">
-            <div class="site-nav-section">
-                <a href="new_entry.php">New Entry</a>  
+        <h2 class="page_heading"><?php echo '<p>Welcome ' . $_SESSION['valid_user'] . '!</p>'; ?></h2>
+        <h3 class="page_subheading">What would you like to do?</h3>
+
+        <!-- The internal links to the site's other pages -->
+        <nav id="site_nav">
+            <div class="site_link_wrapper">
+                <a href="new_entry.php" >New Entry</a>  
             </div>  
-            <div class="site-nav-section">
-                <a href="search.php">Search</a>
+            <div class="site_link_wrapper">
+                <a href="search.php">Search Diary</a>
             </div>
-            <div class="site-nav-section">
-                <a href="view.php">View Entries</a>   
-            </div> 
         </nav>
-
-        <!--
-        <nav id="logout-nav">
-            <a href="logout.php">Logout</a>
-        </nav>
-        -->
 
     </div>
 
+    <!-- Insert Footer -->
     <?php include("footer.php"); ?>
-</body>
 
+</body>
 </html>

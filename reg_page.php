@@ -1,17 +1,45 @@
+<!-- 
+TODO
+-->
+
+<!--File Name: reg_page.php-->
+<!--Code written by: Stephanie Prystupa-Maule-->
+<!--Edited by: Daraja Williams -->
+<!--Description: Registration page for diary site-->
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Stephanie Prystupa-Maule">
+    <meta name="description" content="Registration Page for diary site">
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="assets/reg_script.js" defer></script>
-    <title>Diary Registration</title>
+    <title>Diary Registration Page</title>
 </head>
+
 <body>
-    <?php include("header.php");?>
+    <div id="reg_banner_container" class="banner_container"> 
+        <?php include("header.php");?>
 
-    <div class="formcontainer">
-        <h2>My Diary Registration</h2>
-        <hr>
-        <form name="form" action="register.php" method="POST" onsubmit="return validate();">
+        <div id="login_nav_container" class="account_nav_container">
+            <nav id="login_nav" class="account_nav">
+                <a href="login.php">Login</a>
+            </nav>
+        </div>
+    </div>
 
+    <div id="reg_container" class="page_container">
+
+        <form name="form" action="register.php" method="POST" id="reg_form" class="page_form" onsubmit="return validate();">
+
+            <!-- Subheading specific to this page -->
+            <h2 class="page_heading">Register</h2>
+
+            <!-- Main Entry Fields (user input) -->
             <div class="textfield">
                 <label for="email">Email Address</label>
                 <input type="text" name="email" id="email" placeholder="xyz@xyz.com">
@@ -37,8 +65,10 @@
                 <label for="terms">I agree to the terms and conditions</label>
             </div>
 
-            <button type="submit" class="btn" id="submit-btn">Sign-Up</button>
-            <button type="reset" class="btn" id="reset-btn">Reset</button>
+            <div class="button_wrapper">
+                <button type="submit" class="btn" id="submit-btn">Sign-Up</button>
+                <button type="reset" class="btn" id="reset-btn">Reset</button>
+            </div>
 
         </form>
     </div>

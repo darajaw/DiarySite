@@ -81,31 +81,31 @@
             <!-- Mood Selection (user input) -->
             <div id="mood_bar"> 
 <!-- TODO should be "radio_wrapper" for consistency -->
-                <div id="amazing_wrapper" class="radiowrapper"> 
+                <div id="amazing_wrapper" class="radio_wrapper"> 
                     <input type="radio" id="amazing" name="mood" value="amazing">
                     <label for="amazing"><img src="images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
                     <p class="mood_title">Amazing</p>
                 </div>
 
-                <div id="good_wrapper" class="radiowrapper">
+                <div id="good_wrapper" class="radio_wrapper">
                     <input type="radio" id="good" name="mood" value="good">
                     <label for="good"><img src="images/mood_2.png" alt="good emoji" id="good_img" class="mood_img"></label>
                     <p class="mood_title">Good</p>
                 </div>
 
-                <div id="neutral_wrapper" class="radiowrapper">
+                <div id="neutral_wrapper" class="radio_wrapper">
                     <input type="radio" id="neutral" name="mood" value="neutral">
                     <label for="neutral"><img src="images/mood_3.png" alt="neutral emoji" id="neutral_img" class="mood_img"></label>
                     <p class="mood_title">Neutral</p>
                 </div>
 
-                <div id="bad_wrapper" class="radiowrapper">
+                <div id="bad_wrapper" class="radio_wrapper">
                     <input type="radio" id="bad" name="mood" value="bad">
                     <label for="bad"><img src="images/mood_4.png" alt="bad emoji" id="bad_img" class="mood_img"></label>
                     <p class="mood_title">Bad</p>
                 </div>
 
-                <div id="terrible_wrapper" class="radiowrapper">
+                <div id="terrible_wrapper" class="radio_wrapper">
                     <input type="radio" id="terrible" name="mood" value="terrible">
                     <label for="terrible"><img src="images/mood_5.png" alt="terrible emoji" id="terrible_img" class="mood_img"></label>
                     <p class="mood_title">Terrible</p>

@@ -30,14 +30,14 @@ confirm_login();
     <div id="index_banner_container" class="banner_container"> 
         <?php include("header.php");?>
 
-        <div id="logout_container">
-            <nav id="logout_nav">
+        <div id="logout_nav_container" class="account_nav_container">
+            <nav id="logout_nav" class="account_nav">
                 <a href="logout.php">Logout</a>
             </nav>
         </div>
     </div>
 
-    <div id="index_page_cont" class="page_cont"> 
+    <div id="index_page_cont" class="page_container"> 
 
         <h2 class="page_heading"><?php echo '<p>Welcome ' . $_SESSION['valid_user'] . '!</p>'; ?></h2>
         <h3 class="page_subheading">What would you like to do?</h3>

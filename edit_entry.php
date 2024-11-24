@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to view and edit entries in their diary">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="js/entryScript.js" defer></script>
     <title>View/Edit Entry Page</title>
 </head>
@@ -55,20 +55,21 @@
 
 <body>
 
-    <div id="banner_cont"> 
+    <div class="banner_container"> 
             <!-- insert the header and navigation bar -->
             <?php include("header.php");?>
             <?php include("nav_bar.php");?>
     </div>
     
-    <div id="page_cont">
-
-        <!-- Subheading specific to this page -->
-        <h2 class="page_heading">View/Edit Entry</h2> 
+    <div class="page_container">
 
         <!-- Form to veiw or edit an entry -->
         <form action="update.php" method="POST" id="view/edit_form" class="page_form" onsubmit="return validate();">
+
             <input type="hidden" name="entry_id" value="<?php echo $id; ?>">
+
+            <!-- Subheading specific to this page -->
+            <h2 class="page_heading">View/Edit Entry</h2> 
 
             <!-- Main Entry Fields (retrieved from DB)-->
             <div class="entry_fields">
@@ -134,7 +135,7 @@
                 </div>
             </div>
 
-            <div id="submit_wrapper" class="button_wrapper">
+            <div class="button_wrapper">
                 <button type="submit">Save Changes</button>
             </div>
 

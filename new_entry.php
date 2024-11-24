@@ -27,39 +27,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">
     <meta name="description" content="Allows users to add new entries to their diary">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/style_working.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="assets/entryScript.js" defer></script>
     <title>New Entry Page</title>
 </head>
 
 <body>
 
-    <div id="banner_cont"> 
+    <div class="banner_container"> 
             <!-- insert the header and navigation bar -->
             <?php include("header.php");?>
             <?php include("nav_bar.php");?>
     </div>
 
-    <div id="page_cont">
+    <div class="page_container">
 
-        <!-- Confirm Successful Entry (after submit) or Display Error Message -->
+        <!-- Check if user has been redirected from new_entry page, display confirm or error message -->
         <?php
-            //check if user was redirected from the entry creation page
             if (isset($_GET['id']) && $_GET['id'] == "done") { 
                 //submission confirmation message
-                echo "<h2>Your entry has been logged!</h2>";
+                echo "<h4>Your entry has been logged!</h4>";
             }
             else if (isset($_GET["id"]) && $_GET["id"] == "error") {
                 //submission error message
-                echo "<h2>There has been an error with your entry.</h2>";
+                echo "<h4>There has been an error with your entry.</h4>";
             }
         ?>
 
-        <!-- Subheading specific to this page -->
-        <h2 class="page_heading">New Entry</h2> 
-
         <!-- Form to create new diary entry -->
         <form action="create.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
+
+            <!-- Subheading specific to this page -->
+            <h2 class="page_heading">New Entry</h2> 
 
             <!-- Main Entry Fields (user input) -->
             <div id="entry_fields">
@@ -113,7 +112,7 @@
                 </div>
             </div>
 
-            <div id="submit_wrapper" class="button_wrapper">
+            <div class="button_wrapper">
                 <button type="submit">Save Entry</button>
             </div>
 

@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to search for past entries">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="js/entryScript.js" defer></script>
     <title>Search Entries Page</title>
 </head>
@@ -81,19 +81,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 
 <body>
 
-    <div id="banner_cont"> 
+    <div class="banner_container"> 
         <!-- insert the header and navigation bar -->
         <?php include("header.php");?>
         <?php include("nav_bar.php");?>
     </div>
 
-    <div id="page-cont"> <!-- container for the page's content, common to all -->
-
-        <h2 class="page_heading">Search Entries</h2>
+    <div #id="search_container" class="page_container">
 
 <!-- TODO: form's variables should be renamed to "start_date" style for consistency, 
  but then changes will need to match that elsewhere -->        
         <form action="search.php" method="POST" id="search_form" class="page_form">
+            
+            <!-- Subheading specific to this page -->
+            <h2 class="page_heading">Search Entries</h2>
 
             <!-- Optional Search Fields -->
             <div id="search_fields">
@@ -114,14 +115,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
                 </select>
             </div>
 
-            <div id="search_wrapper" class="button_wrapper">
+            <div id="search_button_wrapper" class="button_wrapper">
                 <button type="submit">Search</button>
             </div>
 
         </form>
 
         <!-- Display the search results -->
-        <div id="results_cont"> 
+        <div id="results_container"> 
 
 <!-- TODO is checking the session still necessary after requiring it above? --> 
             <!-- Check if user's session is valid -->

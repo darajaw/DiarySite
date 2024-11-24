@@ -7,7 +7,7 @@
 <body>
     <?php include("header.php");?>
 
-    <div class="formcontainer">
+    <div class="form-container">
         <h2>My Diary Registration</h2>
         <hr>
         <form name="form" action="register.php" method="POST" onsubmit="return validate();">

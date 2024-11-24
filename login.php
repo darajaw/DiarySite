@@ -44,7 +44,7 @@
     <title>Diary Login</title>
 </head>
 <body>
-    <div class="formcontainer">
+    <div class="form-container">
         <h2>My Diary Login</h2>
         <hr>
         <form name="form" action="login.php" method="POST">

@@ -1,7 +1,7 @@
 <?php
-//File Name:update.php
+//File Name: update.php
 //Code written by: Daraja Williams
-//Description: This file updates new journal entries into the database.
+//Description: This file updates diary entries in the database.
 
 require_once("database.php");
 $db = db_connect();
@@ -25,11 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     $sql = "UPDATE entries SET date = '$date', title = '$title', entry_text = '$entry', entry_mood = '$mood_id' WHERE entry_id = '$id'";
     mysqli_query($db, $sql); //run query on the database
 
-    //redirect to search page with confirmation ID
-    header("Location: search.php");
+    //redirect to edit page with confirmation status
+    header("Location: edit_entry.php?id=$id&status=done");
 } 
 else {
-    //redirect to 
-  header("Location:  newEntry.php");
+     //redirect to edit page with error status
+  header("Location:  edit_entry.php?id=$id&status=error");
 }
 

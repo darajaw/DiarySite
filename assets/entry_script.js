@@ -3,6 +3,7 @@
 let title = document.querySelector("#entry_title");
 let date = document.querySelector("#date");
 let entry = document.querySelector("#entry");
+let mood = document.querySelector("#mood");
 
 let dateCheck = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/; //regex used for date validaiton
 
@@ -11,13 +12,13 @@ let defaultMsg="";
 let titleErrorMsg="Please enter a valid title";
 let dateErrorMsg="Please choose an entry date";
 let entryErrorMsg="Please create a valid entry";
+let moodErrorMsg="Please select a mood";
 
 
 /*
 * Creating the error message elements for each input field
 * and appending them to the respective divs
 */
-
 let titleError=document.createElement('p');
 titleError.setAttribute("class","warning");
 document.querySelectorAll(".textfield")[0].append(titleError);
@@ -29,6 +30,10 @@ document.querySelectorAll(".textfield")[1].append(dateError);
 let entryError=document.createElement('p');
 entryError.setAttribute("class","warning");
 document.querySelectorAll(".textfield")[2].append(entryError);
+
+let moodError=document.createElement('p');
+moodError.setAttribute("class","warning");
+document.querySelectorAll(".mood_div")[0].append(moodError);
 
 /* 
 * Function to validate the form
@@ -53,6 +58,12 @@ function validate(){
         valid = false;
     }
 
+    if (!validMood()){
+        moodError.textContent = moodErrorMsg;
+        valid = false;
+    }
+
+    console.log("valid is" + valid);
     return valid;
 
 }
@@ -92,6 +103,16 @@ function validEntry(){
     else {    
         entry.style.border = "2px solid red"; //changing the border to red if the input is invalid
         return false;
+    }
+}
+
+function validMood(){
+    if (mood==null){
+        return false;
+    }
+
+    else{
+        return true;
     }
 }
 

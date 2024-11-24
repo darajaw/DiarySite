@@ -30,7 +30,6 @@
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to search for past entries">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
-    <script src="js/entryScript.js" defer></script>
     <title>Search Entries Page</title>
 </head>
 

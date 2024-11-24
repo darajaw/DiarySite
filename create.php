@@ -1,5 +1,5 @@
 <?php
-//File Name:create.php
+//File Name: create.php
 //Code written by: Daraja Williams
 //Description: This file enters new journal entries into the database.
 

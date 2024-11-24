@@ -45,7 +45,7 @@ body{
     border-radius: 25px;
 }
 
-.radiowrapper{
+.radio_wrapper{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -53,7 +53,7 @@ body{
     margin-bottom: 1em;
 }
 
-.radiowrapper input{
+.radio_wrapper input{
     visibility:hidden; 
     width:0;
 }
@@ -68,7 +68,7 @@ label:hover + .mood_title {
     display: block; /* Shows the mood title when hovering over the label */
 }
 
-.radiowrapper input:checked + label + .mood_title {
+.radio_wrapper input:checked + label + .mood_title {
     font-weight:bold; 
     display: block;
 }

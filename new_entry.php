@@ -29,7 +29,7 @@
     <meta name="description" content="Allows users to add new entries to their diary">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="assets/entryScript.js" defer></script>
-    <title>New Entry Page</title>
+    <title>Entry Page</title>
 </head>
 
 <body>
@@ -112,12 +112,8 @@
                 </div>
             </div>
 
-            <div class="button_wrapper">
-                <button type="submit">Save Entry</button>
-            </div>
-
         </form>
-
+        <button type="submit">Submit</button>
     </div>
     
     <!-- Insert Footer -->

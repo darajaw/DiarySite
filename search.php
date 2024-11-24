@@ -1,9 +1,44 @@
-<?php
-require_once('session.php');
-require_once('database.php');
-$db = db_connect();
+<!-- 
+ TODO:
 
-// Handle form values sent by searchEntry.php
+-form's variables should be renamed to "start_date" style for consistency, 
+ but then changes will need to match that elsewhere     
+ 
+-review results fieldset
+    -is it still necessary to have the if statement to check if user is in valid session,
+     since you have require_once('session.php); at the top of the page?
+
+-->
+
+<!--File Name: search.php-->
+<!--Code written by: Daraja Williams-->
+<!--Edited by: Stephanie Prystupa-Maule -->
+<!--Description: This page allows users to filter and search their past entries -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<?php
+    require_once('session.php');
+    require_once("database.php");
+    $db = db_connect();
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daraja Williams">        
+    <meta name="description" content="Allows users to search for past entries">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="js/entryScript.js" defer></script>
+    <title>Search Entries Page</title>
+</head>
+
+<!-- Retrieve Matching Records -->
+<!-- If no search criteria is entered all records matching user's id are retrieved -->
+<?php
+// Handle form values sent by search.php
+// TODO: is the above comment accurate if this php code appears in the file search.php itself?
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
     $user_id = $_SESSION['user_id']; // get the user id from the session
     $start = $_POST['startDate']; // access the form data
@@ -44,39 +79,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 } 
 ?>
 
-<!DOCTYPE html>
+<body>
 
-<!--Student Names: Daraja Williams & Stephanie Prystupa-Maule-->
-<!--File Name:entry.html-->
-<!--Date Created: November 13, 2024-->
-<!--Description: This page is used for users to create new entries.-->
+    <div id="banner_cont"> 
+        <!-- insert the header and navigation bar -->
+        <?php include("header.php");?>
+        <?php include("nav_bar.php");?>
+    </div>
 
-<html lang="en">
+    <div id="page-cont"> <!-- container for the page's content, common to all -->
 
-<head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daraja Williams">
-    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
-    <script src="assets/entryScript.js" defer></script>
-    <title>Search Page</title>
-</head>
+        <h2 class="page_heading">Search Entries</h2>
 
-<body class="main-container">
-    <!-- insert the header and navigation bar code -->
-    <?php include("header.php");?>
-    <?php include("nav_bar.php");?>
+<!-- TODO: form's variables should be renamed to "start_date" style for consistency, 
+ but then changes will need to match that elsewhere -->        
+        <form action="search.php" method="POST" id="search_form" class="page_form">
 
-    <div id="search-container" class="main-container">
-        <div id="search-bar">
-            <form action="search.php" method="POST" class="search_form">
-                
+            <!-- Optional Search Fields -->
+            <div id="search_fields">
                 <label for="startDate">Start Date:</label>
                 <input type="date" id="startDate" name="startDate"> 
-                
+                    
                 <label for="endDate">End Date:</label>
                 <input type="date" id="endDate" name="endDate"> 
-                
+                    
                 <label for="mood">Filter By Mood:</label>
                 <select  name="mood" id="mood">
                     <option value="none">None</option>
@@ -86,42 +112,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
                     <option value="bad">Bad</option>
                     <option value="terrible">Terrible</option>
                 </select>
+            </div>
 
+            <div id="search_wrapper" class="button_wrapper">
                 <button type="submit">Search</button>
-            </form>
-        </div>
+            </div>
 
-        <div id="results-section">
-            <!-- Display the search results -->
+        </form>
+
+        <!-- Display the search results -->
+        <div id="results_cont"> 
+
+<!-- TODO is checking the session still necessary after requiring it above? --> 
+            <!-- Check if user's session is valid -->
             <?php if (isset($start)){ ?>
-                <h2><?php 
-                    //results with no set dates
-                    if (empty($start) && empty($end)){  
-                        echo "All Entries";
-                    }
 
-                    //results with a start date only
-                    elseif (!empty($start) && empty($end)){  
-                        echo "Entries since: $start";
-                    }
-
-                    //results with a end date only
-                    elseif (empty($start) && !empty($end)){
-                        echo "Entries before: $end";
-                    }
-                    //results with a start and end date
-                    elseif (!empty($start) && empty($end)){
-                        echo "Entries between: $start and $end";
-                    }
-                    if (!($mood == "none")) {
-                        echo " with mood: ", ucfirst($mood);
-                    }
-                    ?></h2>
-
-                <fieldset id="results_div"> 
+                <!-- Adjusted Heading for Different Search Criteria -->
+                <h3 id="results_heading" class="page_subheading">
+                    <?php 
+                        //results with no set dates
+                        if (empty($start) && empty($end)){  
+                            echo "All Entries";
+                        }
+                        //results with a start date only
+                        elseif (!empty($start) && empty($end)){  
+                            echo "Entries since: $start";
+                        }
+                        //results with a end date only
+                        elseif (empty($start) && !empty($end)){
+                            echo "Entries before: $end";
+                        }
+                        //results with a start and end date
+                        elseif (!empty($start) && empty($end)){
+                            echo "Entries between: $start and $end";
+                        }
+                        //results with a specific mood
+                        if (!($mood == "none")) {
+                            echo " with mood: ", ucfirst($mood);
+                        }
+                    ?>
+                </h3>
+                
+                <!-- Returned Records -->
+                <fieldset id="results"> 
                     <?php  
                         if(empty($result_fetch)){
-                            echo "<p>No entries found</p>";
+                            echo "<p>No matching entries found</p>";
                         }
                         else{                    
                             foreach ($result_fetch as $row) {
@@ -129,18 +165,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
                             $date = $row[1];
                             $title = $row[2];
                             
-                            echo "<p><a href=\"editEntry.php?id=$id\">$date - $title</a></p>";
+                            echo "<p><a href=\"edit_entry.php?id=$id\">$date - $title</a></p>";
                             }
-                        } ?>
+                        } 
+                    ?>
                 </fieldset>
                 
-            <!-- End of if statement -->
+            <!-- End of if statement checking for valid session -->
             <?php } ?>
-        </div> 
+        </div>
+
     </div>
 
-    <!-- add the footer here -->
+    <!-- Insert Footer -->
     <?php include("footer.php"); ?>
-    
+
 </body>
 </html>

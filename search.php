@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
                             $date = $row[1];
                             $title = $row[2];
                             
-                            echo "<p><a href=\"editEntry.php?id=$id\">$date - $title</a></p>";
+                            echo "<p><a href=\"edit_entry.php?id=$id\">$date - $title</a></p>";
                             }
                         } ?>
                 </fieldset>

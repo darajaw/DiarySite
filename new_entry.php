@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
-    <script src="assets/entryScript.js" defer></script>
+    <script src="assets/entry_script.js" defer></script>
     <title>Entry Page</title>
 </head>
 
@@ -91,9 +91,11 @@
                     <p class="mood_title">Terrible</p>
                 </div>
             </div>
-
+            
+                <button type="submit">Submit</button>
+            
         </form>
-        <button type="submit">Submit</button>
+        
     </div>
 
     <!-- add the footer here -->

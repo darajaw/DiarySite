@@ -28,7 +28,7 @@
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to view and edit entries in their diary">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
-    <script src="js/entryScript.js" defer></script>
+    <script src="assets/entry_script.js" defer></script>
     <title>View/Edit Entry Page</title>
 </head>
 

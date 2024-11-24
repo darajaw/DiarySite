@@ -3,7 +3,7 @@
 let title = document.querySelector("#entry_title");
 let date = document.querySelector("#date");
 let entry = document.querySelector("#entry");
-let mood = document.querySelector("#mood");
+let mood = document.querySelector('input[name="mood"]:checked');
 
 let dateCheck = /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/; //regex used for date validaiton
 
@@ -33,7 +33,7 @@ document.querySelectorAll(".textfield")[2].append(entryError);
 
 let moodError=document.createElement('p');
 moodError.setAttribute("class","warning");
-document.querySelectorAll(".mood_div")[0].append(moodError);
+document.querySelectorAll("#mood_bar")[0].append(moodError);
 
 /* 
 * Function to validate the form
@@ -63,7 +63,6 @@ function validate(){
         valid = false;
     }
 
-    console.log("valid is" + valid);
     return valid;
 
 }
@@ -107,6 +106,7 @@ function validEntry(){
 }
 
 function validMood(){
+    let mood = document.querySelector('input[name="mood"]:checked');
     if (mood==null){
         return false;
     }
@@ -145,4 +145,14 @@ entry.addEventListener("blur",()=>{
     else{
         entryError.textContent = entryErrorMsg;
     }
+});
+
+document.querySelectorAll('input[name="mood"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+        if (validMood()) {
+            moodError.textContent = defaultMsg;
+        } else {
+            moodError.textContent = moodErrorMsg;
+        }
+    });
 });

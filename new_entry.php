@@ -28,7 +28,7 @@
     <meta name="author" content="Daraja Williams">
     <meta name="description" content="Allows users to add new entries to their diary">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
-    <script src="assets/entryScript.js" defer></script>
+    <script src="assets/entry_script.js" defer></script>
     <title>Entry Page</title>
 </head>
 
@@ -112,10 +112,12 @@
                 </div>
             </div>
             
-            <button type="submit">Submit</button>
-            
+            <div class="button_wrapper">
+                <button type="submit">Submit</button>
+            </div>
+
         </form>
-        <button type="submit">Submit</button>
+
     </div>
     
     <!-- Insert Footer -->

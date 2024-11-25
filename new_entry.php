@@ -1,13 +1,3 @@
-<!-- 
- TODO:
-(same as edit_entry.php TODOs)
- -change mood's "radiowrapper" class to "radio_wrapper", for consistency
-    -can't find whatever styling was being applied to "radiowrapper", it changes when i change the name
-
- -add more in-line comments? idk prof likes comments
-
--->
-
 <!--File Name: new_entry.php-->
 <!--Code written by: Daraja Williams-->
 <!--Edited by: Stephanie Prystupa-Maule -->

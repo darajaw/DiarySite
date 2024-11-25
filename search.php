@@ -1,65 +1,38 @@
-<!-- 
- TODO:
-
--form's variables should be renamed to "start_date" style for consistency, 
- but then changes will need to match that elsewhere     
- 
--review results fieldset
-    -is it still necessary to have the if statement to check if user is in valid session,
-     since you have require_once('session.php); at the top of the page?
-
--->
-
-<!--File Name: search.php-->
-<!--Code written by: Daraja Williams-->
-<!--Edited by: Stephanie Prystupa-Maule -->
-<!--Description: This page allows users to filter and search their past entries -->
-
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
+    //File Name: search.php
+    //Code written by: Daraja Williams
+    //Edited by: Stephanie Prystupa-Maule
+    //Description: This page allows users to search for previous entries in the database.
+
     require_once('session.php');
     require_once("database.php");
     $db = db_connect();
-?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daraja Williams">        
-    <meta name="description" content="Allows users to search for past entries">
-    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
-    <title>Search Entries Page</title>
-</head>
-
-<!-- Retrieve Matching Records -->
-<!-- If no search criteria is entered all records matching user's id are retrieved -->
-<?php
 // Handle form values sent by search.php
-// TODO: is the above comment accurate if this php code appears in the file search.php itself?
-if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $_SESSION['user_id']; // get the user id from the session
-    $start = $_POST['startDate']; // access the form data
-    $end = $_POST['endDate'];
+
+    // access the form data
+    $start_date = $_POST['start_date']; 
+    $end_date = $_POST['end_date'];
     $mood = $_POST['mood'];
 
     //search with no dates
     $entry_search = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
 
     //search with a start date only
-    if (!empty($start) && empty($end)){
-        $entry_search .= " AND date >= '$start'";
+    if (!empty($start_date) && empty($end_date)){
+        $entry_search .= " AND date >= '$start_date'";
     }
 
     //search with a end date only
-    elseif (empty($start) && !empty($end)){
-        $entry_search .= " AND date <= '$end'";
+    elseif (empty($start_date) && !empty($end_date)){
+        $entry_search .= " AND date <= '$end_date'";
     }
 
     //search with a start and end date
-    elseif (!empty($start) && !empty($end)){
-        $entry_search .= " AND date BETWEEN '$start' AND '$end'";
+    elseif (!empty($start_date) && !empty($end_date)){
+        $entry_search .= " AND date BETWEEN '$start_date' AND '$end_date'";
     }
 
     //check if a mood was set to filter by
@@ -78,6 +51,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 } 
 ?>
 
+<!DOCTYPE html>
+<html lang="en"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daraja Williams">        
+    <meta name="description" content="Allows users to search for past entries">
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <title>Search Entries Page</title>
+</head>
+
 <body>
 
     <div class="banner_container"> 
@@ -88,8 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 
     <div #id="search_container" class="page_container">
 
-<!-- TODO: form's variables should be renamed to "start_date" style for consistency, 
- but then changes will need to match that elsewhere -->        
+
         <form action="search.php" method="POST" id="search_form" class="page_form">
             
             <!-- Subheading specific to this page -->
@@ -98,13 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
             <div id="search_bar">
                 <!-- Optional Search Fields -->
                 <div class="field_wrapper">
-                    <label for="startDate">Start Date:</label>
-                    <input type="date" id="startDate" name="startDate"> 
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date"> 
                 </div>
                       
                 <div class="field_wrapper">
-                    <label for="endDate">End Date:</label>
-                    <input type="date" id="endDate" name="endDate"> 
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date"> 
                 </div>
                         
                 <div class="field_wrapper">
@@ -129,28 +113,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
         <!-- Display the search results -->
         <div id="results_container"> 
 
-<!-- TODO is checking the session still necessary after requiring it above? --> 
-            <!-- Check if user's session is valid -->
-            <?php if (isset($start)){ ?>
+            <?php if (isset($start_date)){ ?>
 
                 <!-- Adjusted Heading for Different Search Criteria -->
                 <h3 id="results_heading" class="page_subheading">
                     <?php 
                         //results with no set dates
-                        if (empty($start) && empty($end)){  
+                        if (empty($start_date) && empty($end_date)){  
                             echo "All Entries";
                         }
                         //results with a start date only
-                        elseif (!empty($start) && empty($end)){  
-                            echo "Entries since: $start";
+                        elseif (!empty($start_date) && empty($end_date)){  
+                            echo "Entries since: $start_date";
                         }
                         //results with a end date only
-                        elseif (empty($start) && !empty($end)){
-                            echo "Entries before: $end";
+                        elseif (empty($start_date) && !empty($end_date)){
+                            echo "Entries before: $end_date";
                         }
                         //results with a start and end date
-                        elseif (!empty($start) && empty($end)){
-                            echo "Entries between: $start and $end";
+                        elseif (!empty($start_date) && empty($end_date)){
+                            echo "Entries between: $start_date and $end_date";
                         }
                         //results with a specific mood
                         if (!($mood == "none")) {
@@ -171,6 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
                             $date = $row[1];
                             $title = $row[2];
                             
+                            //Display each result as a link to the entry edit page
                             echo "<p><a href=\"edit_entry.php?id=$id\">$date - $title</a></p>";
                             }
                         } 

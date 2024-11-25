@@ -1,7 +1,6 @@
-<!-- 
- TODO
--add submission file notes, e.g. authorship purpose
- -->
+<!--File Name: nav_bar.php-->
+<!--Code written by: Stephanie Prystupa-Maule-->
+<!--Description: The nav buttons for diary website.-->
 
 <!DOCTYPE html>
 

@@ -1,7 +1,8 @@
-<!--
-TODO: 
--add submission file notes, e.g. authorship purpose
---> 
+<?php
+    //File Name: footer.php
+    //Code written by: Daraja Williams
+    //Description: This footer is reused for all pages.
+?>
 
 <!DOCTYPE html>
 <html lang="en">

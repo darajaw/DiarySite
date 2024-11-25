@@ -1,10 +1,16 @@
 <?php
+    //File Name: header.php
+    //Code written by: Stephanie Prystupa-Maule
+    //Edited by: Daraja Williams
+    //Description: Registration page for diary site.
+
     $message=''; //initaize error message
 
+    //check for a status in the URL
     if (isset($_GET["status"])) {
         $status = $_GET["status"];
         
-        //make a swithc for the status
+        //make a switch for the status
         switch ($status) {
             case 'user_error':
                 $message = "This username already exists!";
@@ -18,16 +24,6 @@
         }
     }
 ?>
-
-<!-- 
-TODO
--->
-
-<!--File Name: reg_page.php-->
-<!--Code written by: Stephanie Prystupa-Maule-->
-<!--Edited by: Daraja Williams -->
-<!--Description: Registration page for diary site-->
-
 
 <!DOCTYPE html>
 <html lang="en">

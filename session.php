@@ -1,7 +1,7 @@
 <?php
 //File Name: create.php
 //Code written by: Daraja Williams
-//Description: This file enters new journal entries into the database.
+//Description: This file contians functions and methods pertaining to the PHP session.
 
 //start the session
 session_start();

@@ -9,7 +9,7 @@ session_start();
 //this function can be used to check if a user is logged in
 function confirm_login(){
     if (!isset($_SESSION['valid_user'])) {
-        header("Location: ../pages/login.php");
+        header("Location: pages/login.php");
     }
 }
 

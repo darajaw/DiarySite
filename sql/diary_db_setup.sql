@@ -1,3 +1,9 @@
+/* 
+Filename: diary_db_setup.sql
+Author: Stephanie Prystupa-Maule
+Purpose: Database creation for Diary web application
+*/
+
 DROP DATABASE IF EXISTS diary;
 
 /* Create Database */
@@ -9,8 +15,6 @@ FLUSH PRIVILEGES;
 USE diary;
 
 /* Create table for the list of possible moods */
--- prof's versions uses CREATE TABLE IF NOT EXISTS, 
--- once sql is finalized we can remove all the DROP IF's and switch the create statements to that
 DROP TABLE IF EXISTS moods;
 
 CREATE TABLE `moods` (

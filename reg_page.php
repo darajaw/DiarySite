@@ -1,3 +1,24 @@
+<?php
+    $message=''; //initaize error message
+
+    if (isset($_GET["status"])) {
+        $status = $_GET["status"];
+        
+        //make a swithc for the status
+        switch ($status) {
+            case 'user_error':
+                $message = "This username already exists!";
+                break;
+            case 'email_error':
+                $message = "This email is already in use!";
+                break;
+            default:
+                $message = "";
+                break;
+        }
+    }
+?>
+
 <!-- 
 TODO
 -->
@@ -38,6 +59,7 @@ TODO
 
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">Register</h2>
+            <?php echo "<p class=\"warning\">$message</p>"; ?>
 
             <!-- Main Entry Fields (user input) -->
             <div class="textfield">

@@ -21,5 +21,5 @@ if (isset($_GET['id']) && $_GET['id'] == 'logout') {
 
     session_destroy(); //kill the session
 
-    header('Location: login.php?id=out'); //redirect to login page
+    header('Location: login.php?status=out'); //redirect to login page
 }

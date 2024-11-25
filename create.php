@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     $entry = $_POST['entry'];
     $mood = $_POST['mood'];
     
+    check_duplicate($db, $date);
+
     $mood_sql = "SELECT mood_id FROM moods WHERE mood = \"$mood\""; //query to get the mood ID that matches the submitted mood
     $mood_row = mysqli_query($db, $mood_sql); //run query on database
     $mood_fetch = mysqli_fetch_assoc($mood_row); //fetch the resulting row
@@ -27,10 +29,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     mysqli_query($db, $sql); //run query on the database
 
     //redirect to new entry page with confirmation ID
-    header("Location: new_entry.php?id=done");
+    header("Location: new_entry.php?status=done");
 } 
 else {
     //redirect to new entry page with erro ID
-  header("Location:  new_entry.php?id=error");
+  header("Location:  new_entry.php?status=error");
 }
 
+function check_duplicate($db, $date){
+    
+  $entry_sql = "SELECT * FROM entries"; //query to retrieve list of all users
+  $entry_row = mysqli_query( $db, $entry_sql ); //run query on database
+ 
+  //compare new user to each existing user to check for duplicates
+  while ($entry = mysqli_fetch_array($entry_row)){
+    if ( $entry['date'] == $date ) {
+        //date error if date is duplicate
+        header("Location: new_entry.php?status=dupli");
+        exit();
+    }
+  }
+}

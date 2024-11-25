@@ -20,6 +20,7 @@
     require_once('session.php');
     require_once("database.php");
     $db = db_connect();
+    $message = ""; //initialize message variable
 ?>
 
 <head>
@@ -51,6 +52,20 @@
 
     //retrieve mood ID from entry 
     $selected_mood = $result['entry_mood'];
+
+     //check if a status is received in the URL
+     if (isset($_GET["status"])) {
+        $status = $_GET["status"];
+    
+        //check if it's a success or error status
+        if ($status == 'done') { 
+            //Confirmation message if entry was updated
+            $message = "Entry Updated Successfully!"; 
+        } else if ($status == 'error') { 
+            //Error message if entry was not updated
+            $message = "Error Updating Entry!";
+        }
+    }
 ?>
 
 <body>
@@ -70,6 +85,7 @@
 
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">View/Edit Entry</h2> 
+            <p class='form_heading'><?php echo $message; ?></p>
 
             <!-- Main Entry Fields (retrieved from DB)-->
             <div class="entry_fields">

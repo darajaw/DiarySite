@@ -1,7 +1,8 @@
-<!-- 
- TODO
--add submission file notes, e.g. authorship purpose
- -->
+<?php
+  //File Name: header.php
+  //Code written by: Daraja Williams
+  //Description: This header is reused for all pages.
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,7 @@
 <?php
+//File Name: register.php
+//Code written by: Daraja Williams
+//Description: This file enters newly registered users into the database.
 
 require_once('database.php');
 //include "headerEm.php";

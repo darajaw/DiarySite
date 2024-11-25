@@ -1,8 +1,3 @@
-<!-- 
- TODO:
-
--->
-
 <!DOCTYPE html>
 <html>
 

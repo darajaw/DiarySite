@@ -1,40 +1,16 @@
-<!-- 
- TODO:
-(same as edit_entry.php TODOs)
- -change mood's "radio_wrapper" class to "radio_wrapper", for consistency
-    -can't find whatever styling was being applied to "radio_wrapper", it changes when i change the name
-
- -add more in-line comments? idk prof likes comments
-
--->
-
-<!--File Name: edit_entry.php-->
-<!--Code written by: Daraja Williams-->
-<!--Edited by: Stephanie Prystupa-Maule -->
-<!--Description: This page allows users to view and edit past entries-->
-
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
+    //File Name: edit_entry.php
+    //Code written by: Daraja Williams
+    //Edited by: Stephanie Prystupa-Maule
+    //Description: This file allows users to view and edit past journal entries.
+
     require_once('session.php');
     require_once("database.php");
     $db = db_connect();
     $message = ""; //initialize message variable
-?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daraja Williams">        
-    <meta name="description" content="Allows users to view and edit entries in their diary">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-    <script src="assets/entry_script.js" defer></script>
-    <title>Diary View/Edit Entry</title>
-</head>
 
-<!-- Retrieve Values from Record to be Displayed -->
-<?php 
+    // Retrieve Values from Record to be Displayed
     if (!isset($_GET['id'])) { //check if we get the ID
         //redirect to new entry page if no ID was received
         header("Location:  new_entry.php");
@@ -67,6 +43,19 @@
         }
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="en"></html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daraja Williams">        
+    <meta name="description" content="Allows users to view and edit entries in their diary">
+    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <script src="assets/entry_script.js" defer></script>
+    <title>Diary View/Edit Entry</title>
+</head>
 
 <body>
 

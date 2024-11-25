@@ -1,9 +1,3 @@
-<!-- 
- TODO:
- -add more in-line comments? idk prof likes comments
-
--->
-
 <!--File Name: new_entry.php-->
 <!--Code written by: Daraja Williams-->
 <!--Edited by: Stephanie Prystupa-Maule -->

@@ -1,21 +1,17 @@
-<!-- 
-TODO
--->
-
-<!--File Name: login.php-->
-<!--Code written by: Stephanie Prystupa-Maule-->
-<!--Edited by: Daraja Williams -->
-<!--Description: Login page for diary site-->
-
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
+    //File Name: login.php
+    //Code written by: Stephanie Prystupa-Maule
+    //Edited by: Daraja Williams
+    //Description: Login page for diary site.
+
     session_start();
     require_once('database.php');
     $db = db_connect();
     $message=''; //initaize error message
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -84,7 +80,6 @@ TODO
 
         <!-- Form to Login -->
         <form name="form" action="login.php" method="POST" id="login_form" class="page_form">
-<!-- TODO test if form name is necessary, login and reg page-->
             
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">Login</h2> 

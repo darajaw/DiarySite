@@ -4,8 +4,8 @@
     //Edited by: Stephanie Prystupa-Maule
     //Description: This page allows users to search for previous entries in the database.
 
-    require_once('session.php');
-    require_once("database.php");
+    require_once('../database/session.php');
+    require_once("../database/database.php");
     $db = db_connect();
 ?>
 
@@ -56,15 +56,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 
 <head>
+    <title>Search Entries Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to search for past entries">
     <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-    <title>Search Entries Page</title>
+    
 </head>
 
 <body>

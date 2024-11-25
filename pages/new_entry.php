@@ -8,7 +8,7 @@
 
 <?php
     //call file to start session
-    require_once('session.php');
+    require_once('../database/session.php');
     confirm_login();
 
     $message = ''; //initialize status message
@@ -37,7 +37,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">
     <meta name="description" content="Allows users to add new entries to their diary">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
     <script src="assets/entry_script.js" defer></script>
     <title>Diary New Entry</title>
 </head>
@@ -62,7 +61,7 @@
     <div class="page_container">
 
         <!-- Form to create new diary entry -->
-        <form action="create.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
+        <form action="../database/create.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
 
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">New Entry</h2> 
@@ -91,31 +90,31 @@
             <div id="mood_bar"> 
                 <div class="radio_wrapper"> 
                     <input type="radio" id="amazing" name="mood" value="amazing">
-                    <label for="amazing"><img src="images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
+                    <label for="amazing"><img src="../images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
                     <p class="mood_title">Amazing</p>
                 </div>
 
                 <div class="radio_wrapper">
                     <input type="radio" id="good" name="mood" value="good">
-                    <label for="good"><img src="images/mood_2.png" alt="good emoji" id="good_img" class="mood_img"></label>
+                    <label for="good"><img src="../images/mood_2.png" alt="good emoji" id="good_img" class="mood_img"></label>
                     <p class="mood_title">Good</p>
                 </div>
 
                 <div class="radio_wrapper">
                     <input type="radio" id="neutral" name="mood" value="neutral">
-                    <label for="neutral"><img src="images/mood_3.png" alt="neutral emoji" id="neutral_img" class="mood_img"></label>
+                    <label for="neutral"><img src="../images/mood_3.png" alt="neutral emoji" id="neutral_img" class="mood_img"></label>
                     <p class="mood_title">Neutral</p>
                 </div>
 
                 <div class="radio_wrapper">
                     <input type="radio" id="bad" name="mood" value="bad">
-                    <label for="bad"><img src="images/mood_4.png" alt="bad emoji" id="bad_img" class="mood_img"></label>
+                    <label for="bad"><img src="../images/mood_4.png" alt="bad emoji" id="bad_img" class="mood_img"></label>
                     <p class="mood_title">Bad</p>
                 </div>
 
                 <div class="radio_wrapper">
                     <input type="radio" id="terrible" name="mood" value="terrible">
-                    <label for="terrible"><img src="images/mood_5.png" alt="terrible emoji" id="terrible_img" class="mood_img"></label>
+                    <label for="terrible"><img src="../images/mood_5.png" alt="terrible emoji" id="terrible_img" class="mood_img"></label>
                     <p class="mood_title">Terrible</p>
                 </div>
             </div>

@@ -3,8 +3,8 @@
 //Code written by: Daraja Williams
 //Description: This file enters new journal entries into the database.
 
-require_once('session.php');
-require_once('database.php');
+require_once('../session.php');
+require_once('../database.php');
 $db = db_connect();
 
 // Handle form values sent by new_entry.php
@@ -29,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     mysqli_query($db, $sql); //run query on the database
 
     //redirect to new entry page with confirmation ID
-    header("Location: new_entry.php?status=done");
+    header("Location: ../pages/new_entry.php?status=done");
 } 
 else {
     //redirect to new entry page with erro ID
-  header("Location:  new_entry.php?status=error");
+  header("Location:  ../pages/new_entry.php?status=error");
 }
 
 function check_duplicate($db, $date){
@@ -45,7 +45,7 @@ function check_duplicate($db, $date){
   while ($entry = mysqli_fetch_array($entry_row)){
     if ( $entry['date'] == $date ) {
         //date error if date is duplicate
-        header("Location: new_entry.php?status=dupli");
+        header("Location: ../pages/new_entry.php?status=dupli");
         exit();
     }
   }

@@ -4,8 +4,8 @@
     //Edited by: Stephanie Prystupa-Maule
     //Description: This file allows users to view and edit past journal entries.
 
-    require_once('session.php');
-    require_once("database.php");
+    require_once('../database/session.php');
+    require_once("../database/database.php");
     $db = db_connect();
     $message = ""; //initialize message variable
 
@@ -23,7 +23,7 @@
 
     //redirect to home page if entry user ID does not match session user ID
     if($result['user_id'] != $_SESSION['user_id']) {
-        header("Location: index.php");
+        header("Location: ../index.php");
     }
 
     //retrieve mood ID from entry 
@@ -45,7 +45,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@
 
         <div id="logout_nav_container" class="account_nav_container">
             <nav id="logout_nav" class="account_nav">
-                <a href="session.php?id=logout">Logout</a>
+                <a href="../database/session.php?id=logout">Logout</a>
             </nav>
         </div>
 
@@ -77,7 +77,7 @@
     <div class="page_container">
 
         <!-- Form to veiw or edit an entry -->
-        <form action="update.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
+        <form action="../database/update.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
 
             <input type="hidden" name="entry_id" value="<?php echo $id; ?>">
 
@@ -111,7 +111,7 @@
                         <?php 
                         echo ($selected_mood == 1) ? 'checked' : ''; 
                         ?>> 
-                    <label for="amazing"><img src="images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
+                    <label for="amazing"><img src="../images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
                     <p class="mood_title">Amazing</p>
                 </div>
 
@@ -119,7 +119,7 @@
                     <input type="radio" id="good" name="mood" value="good"
                         <?php echo ($selected_mood == 2) ? 'checked' : ''; 
                         ?>>
-                    <label for="good"><img src="images/mood_2.png" alt="good emoji" id="good_img" class="mood_img"></label>
+                    <label for="good"><img src="../images/mood_2.png" alt="good emoji" id="good_img" class="mood_img"></label>
                     <p class="mood_title">Good</p>
                 </div>
 
@@ -127,7 +127,7 @@
                     <input type="radio" id="neutral" name="mood" value="neutral"
                         <?php echo ($selected_mood == 3) ? 'checked' : ''; 
                         ?>>
-                    <label for="neutral"><img src="images/mood_3.png" alt="neutral emoji" id="neutral_img" class="mood_img"></label>
+                    <label for="neutral"><img src="../images/mood_3.png" alt="neutral emoji" id="neutral_img" class="mood_img"></label>
                     <p class="mood_title">Neutral</p>
                 </div>
 
@@ -135,7 +135,7 @@
                     <input type="radio" id="bad" name="mood" value="bad"
                         <?php echo ($selected_mood == 4) ? 'checked' : ''; 
                         ?>>
-                    <label for="bad"><img src="images/mood_4.png" alt="bad emoji" id="bad_img" class="mood_img"></label>
+                    <label for="bad"><img src="../images/mood_4.png" alt="bad emoji" id="bad_img" class="mood_img"></label>
                     <p class="mood_title">Bad</p>
                 </div>
 
@@ -143,7 +143,7 @@
                     <input type="radio" id="terrible" name="mood" value="terrible"
                         <?php echo ($selected_mood == 5) ? 'checked' : ''; 
                         ?>>
-                    <label for="terrible"><img src="images/mood_5.png" alt="terrible emoji" id="terrible_img" class="mood_img"></label>
+                    <label for="terrible"><img src="../images/mood_5.png" alt="terrible emoji" id="terrible_img" class="mood_img"></label>
                     <p class="mood_title">Terrible</p>
                 </div>
             </div>

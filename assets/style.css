@@ -1,9 +1,12 @@
+/*
+DONE
 body{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+DONE
 .warning{
     color: red;
     font-weight: bold;
@@ -60,15 +63,19 @@ body{
 
 .mood_title {
     display: none; /* Hidden by default */
+/*
     position: absolute;
     left: 50%;
 }
 
 label:hover + .mood_title {
     display: block; /* Shows the mood title when hovering over the label */
+/*
 }
 
 .radio_wrapper input:checked + label + .mood_title {
     font-weight:bold; 
     display: block;
 }
+
+*/

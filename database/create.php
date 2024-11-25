@@ -3,8 +3,8 @@
 //Code written by: Daraja Williams
 //Description: This file enters new journal entries into the database.
 
-require_once('../session.php');
-require_once('../database.php');
+require_once('session.php');
+require_once('database.php');
 $db = db_connect();
 
 // Handle form values sent by new_entry.php

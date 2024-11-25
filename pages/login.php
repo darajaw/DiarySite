@@ -5,7 +5,7 @@
     //Description: Login page for diary site.
 
     session_start();
-    require_once('database.php');
+    require_once('../database/database.php');
     $db = db_connect();
     $message=''; //initaize error message
 ?>
@@ -53,7 +53,7 @@
                 $_SESSION['valid_pass'] = $password;
                 $_SESSION['user_id'] = $user['user_id'];
                 $valid = true;
-                header('Location: index.php');
+                header('Location: ../index.php');
                 break;
             }
         }

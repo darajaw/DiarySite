@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     mysqli_query($db, $sql); //run query on the database
 
     //redirect to edit page with confirmation status
-    header("Location: edit_entry.php?id=$id&status=done");
+    header("Location: ../pages/edit_entry.php?id=$id&status=done");
 } 
 else {
      //redirect to edit page with error status
-  header("Location:  edit_entry.php?id=$id&status=error");
+  header("Location:  ../pages/edit_entry.php?id=$id&status=error");
 }
 

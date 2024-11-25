@@ -7,7 +7,7 @@
 <!--Description: Home/landing page for diary website.-->
 
 <?php
-require_once("session.php");
+require_once("database/session.php");
 confirm_login();
 ?>
 
@@ -23,11 +23,11 @@ confirm_login();
     
     <!-- Homepage banner only contains header (Title), as nav appears in main page contents -->
     <div id="index_banner_container" class="banner_container"> 
-        <?php include("header.php");?>
+        <?php include("pages/header.php");?>
 
         <div id="logout_nav_container" class="account_nav_container">
             <nav id="logout_nav" class="account_nav">
-                <a href="session.php?id=logout">Logout</a>
+                <a href="database/session.php?id=logout">Logout</a>
             </nav>
         </div>
     </div>
@@ -40,17 +40,17 @@ confirm_login();
         <!-- The internal links to the site's other pages -->
         <nav id="site_nav">
             <div class="site_link_wrapper">
-                <a href="new_entry.php" >New Entry</a>  
+                <a href="pages/new_entry.php" >New Entry</a>  
             </div>  
             <div class="site_link_wrapper">
-                <a href="search.php">Search Diary</a>
+                <a href="pages/search.php">Search Diary</a>
             </div>
         </nav>
 
     </div>
 
     <!-- Insert Footer -->
-    <?php include("footer.php"); ?>
+    <?php include("pages/footer.php"); ?>
 
 </body>
 </html>

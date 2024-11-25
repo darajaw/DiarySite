@@ -9,7 +9,7 @@ session_start();
 //this function can be used to check if a user is logged in
 function confirm_login(){
     if (!isset($_SESSION['valid_user'])) {
-        header("Location: login.php");
+        header("Location: ../pages/login.php");
     }
 }
 
@@ -21,5 +21,5 @@ if (isset($_GET['id']) && $_GET['id'] == 'logout') {
 
     session_destroy(); //kill the session
 
-    header('Location: login.php?status=out'); //redirect to login page
+    header('Location: ../pages/login.php?status=out'); //redirect to login page
 }

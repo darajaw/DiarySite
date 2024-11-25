@@ -9,7 +9,6 @@
 <?php
     //call file to start session
     require_once('../database/session.php');
-    confirm_login();
 
     $message = ''; //initialize status message
 

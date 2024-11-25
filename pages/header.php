@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="../assets/stylesheet.css">
 <body>
   <!-- header for all pages-->
   <header> 

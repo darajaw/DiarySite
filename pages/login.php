@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Stephanie Prystupa-Maule">
     <meta name="description" content="Login Page for diary site">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../script/stylesheet.css">
     <title>Diary Login</title>
 </head>
 

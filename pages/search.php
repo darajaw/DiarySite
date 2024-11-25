@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to search for past entries">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../script/stylesheet.css">
     
 </head>
 
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             echo "Entries before: $end_date";
                         }
                         //results with a start and end date
-                        elseif (!empty($start_date) && empty($end_date)){
+                        elseif (!empty($start_date) && !empty($end_date)){
                             echo "Entries between: $start_date and $end_date";
                         }
                         //results with a specific mood

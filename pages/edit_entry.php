@@ -52,8 +52,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to view and edit entries in their diary">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
-    <script src="assets/entry_script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="../script/stylesheet.css">
+    <script src="../script/entry_script.js" defer></script>
     <title>Diary View/Edit Entry</title>
 </head>
 

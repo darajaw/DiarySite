@@ -29,7 +29,7 @@
     <meta name="description" content="Allows users to add new entries to their diary">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="assets/entry_script.js" defer></script>
-    <title>Entry Page</title>
+    <title>Diary New Entry</title>
 </head>
 
 <body>

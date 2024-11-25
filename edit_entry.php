@@ -29,7 +29,7 @@
     <meta name="description" content="Allows users to view and edit entries in their diary">
     <link rel="stylesheet" type="text/css" href="assets/style_working.css">
     <script src="assets/entry_script.js" defer></script>
-    <title>View/Edit Entry Page</title>
+    <title>Diary View/Edit Entry</title>
 </head>
 
 <!-- Retrieve Values from Record to be Displayed -->

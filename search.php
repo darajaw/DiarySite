@@ -86,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div #id="search_container" class="page_container">
 
-
         <form action="search.php" method="POST" id="search_form" class="page_form">
             
             <!-- Subheading specific to this page -->

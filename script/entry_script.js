@@ -1,7 +1,7 @@
 
 //Variable declaration for the form input fields
 let title = document.querySelector("#entry_title");
-let date = document.querySelector("#date");
+let date = document.querySelector("#entry_date");
 let entry = document.querySelector("#entry");
 let mood = document.querySelector('input[name="mood"]:checked');
 
@@ -62,6 +62,8 @@ function validate(){
         moodError.textContent = moodErrorMsg;
         valid = false;
     }
+
+    console.log(valid);
 
     return valid;
 

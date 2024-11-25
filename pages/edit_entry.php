@@ -94,7 +94,7 @@
 
                 <div class="textfield">
                     <label for="date">Date:</label>
-                    <input type="date" id="entry_date" name="date" value = "<?php echo $result['date']; ?>">             
+                    <input type="date" id="entry_date" name="date" value = "<?php echo $result['date']; ?>"></input>             
                 </div>
 
                 <div class="textfield">

@@ -1,9 +1,5 @@
 <!-- 
  TODO:
-(same as edit_entry.php TODOs)
- -change mood's "radiowrapper" class to "radio_wrapper", for consistency
-    -can't find whatever styling was being applied to "radiowrapper", it changes when i change the name
-
  -add more in-line comments? idk prof likes comments
 
 -->
@@ -63,49 +59,48 @@
             <!-- Main Entry Fields (user input) -->
             <div id="entry_fields">
                 <div class="textfield">
-                <label for="entry_title">Title:</label>
-                <input type="text" id="entry_title" name="entry_title">
+                    <label for="entry_title">Title:</label>
+                    <input type="text" id="entry_title" name="entry_title">
                 </div>
 
                 <div class="textfield">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date">             
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">             
                 </div>
 
                 <div class="textfield">
-                <label for="entry">Entry:</label>
-                <textarea id="entry" name="entry" rows="10" cols="50"></textarea>
+                    <label for="entry">Entry:</label>
+                    <textarea id="entry" name="entry" rows="10" cols="50"></textarea>
                 </div>
             </div>
             
             <!-- Mood Selection (user input) -->
             <div id="mood_bar"> 
-<!-- TODO should be "radio_wrapper" for consistency -->
-                <div id="amazing_wrapper" class="radio_wrapper"> 
+                <div class="radio_wrapper"> 
                     <input type="radio" id="amazing" name="mood" value="amazing">
                     <label for="amazing"><img src="images/mood_1.png" alt="amazing emoji" id="amazing_img" class="mood_img"></label>
                     <p class="mood_title">Amazing</p>
                 </div>
 
-                <div id="good_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="good" name="mood" value="good">
                     <label for="good"><img src="images/mood_2.png" alt="good emoji" id="good_img" class="mood_img"></label>
                     <p class="mood_title">Good</p>
                 </div>
 
-                <div id="neutral_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="neutral" name="mood" value="neutral">
                     <label for="neutral"><img src="images/mood_3.png" alt="neutral emoji" id="neutral_img" class="mood_img"></label>
                     <p class="mood_title">Neutral</p>
                 </div>
 
-                <div id="bad_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="bad" name="mood" value="bad">
                     <label for="bad"><img src="images/mood_4.png" alt="bad emoji" id="bad_img" class="mood_img"></label>
                     <p class="mood_title">Bad</p>
                 </div>
 
-                <div id="terrible_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="terrible" name="mood" value="terrible">
                     <label for="terrible"><img src="images/mood_5.png" alt="terrible emoji" id="terrible_img" class="mood_img"></label>
                     <p class="mood_title">Terrible</p>
@@ -113,7 +108,7 @@
             </div>
             
             <div class="button_wrapper">
-                <button type="submit">Submit</button>
+                <button type="submit">Save Entry</button>
             </div>
 
         </form>

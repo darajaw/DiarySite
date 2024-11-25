@@ -64,7 +64,7 @@
     <div class="page_container">
 
         <!-- Form to veiw or edit an entry -->
-        <form action="update.php" method="POST" id="view/edit_form" class="page_form" onsubmit="return validate();">
+        <form action="update.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
 
             <input type="hidden" name="entry_id" value="<?php echo $id; ?>">
 
@@ -92,7 +92,7 @@
             <!-- Mood Selection (retrieved from DB) -->
             <div id="mood_bar">
 <!-- TODO should be "radio_wrapper" for consistency -->                 
-                <div id="amazing_wrapper" class="radio_wrapper"> 
+                <div class="radio_wrapper"> 
                     <!-- if this mood matches DB record, mark it as checked -->
                     <input type="radio" id="amazing" name="mood" value="amazing"
                         <?php 
@@ -102,7 +102,7 @@
                     <p class="mood_title">Amazing</p>
                 </div>
 
-                <div id="good_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="good" name="mood" value="good"
                         <?php echo ($selected_mood == 2) ? 'checked' : ''; 
                         ?>>
@@ -110,7 +110,7 @@
                     <p class="mood_title">Good</p>
                 </div>
 
-                <div id="neutral_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="neutral" name="mood" value="neutral"
                         <?php echo ($selected_mood == 3) ? 'checked' : ''; 
                         ?>>
@@ -118,7 +118,7 @@
                     <p class="mood_title">Neutral</p>
                 </div>
 
-                <div id="bad_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="bad" name="mood" value="bad"
                         <?php echo ($selected_mood == 4) ? 'checked' : ''; 
                         ?>>
@@ -126,7 +126,7 @@
                     <p class="mood_title">Bad</p>
                 </div>
 
-                <div id="terrible_wrapper" class="radio_wrapper">
+                <div class="radio_wrapper">
                     <input type="radio" id="terrible" name="mood" value="terrible"
                         <?php echo ($selected_mood == 5) ? 'checked' : ''; 
                         ?>>

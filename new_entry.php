@@ -43,7 +43,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">
     <meta name="description" content="Allows users to add new entries to their diary">
-    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
     <script src="assets/entry_script.js" defer></script>
     <title>Diary New Entry</title>
 </head>
@@ -51,9 +51,18 @@
 <body>
 
     <div class="banner_container"> 
-            <!-- insert the header and navigation bar -->
-            <?php include("header.php");?>
-            <?php include("nav_bar.php");?>
+        <!-- insert the header -->
+        <?php include("header.php");?>
+
+        <div id="logout_nav_container" class="account_nav_container">
+            <nav id="logout_nav" class="account_nav">
+                <a href="session.php?id=logout">Logout</a>
+            </nav>
+        </div>
+
+        <!-- include navigation bar -->
+        <?php include("nav_bar.php");?>
+
     </div>
 
     <div class="page_container">
@@ -67,6 +76,7 @@
 
             <!-- Main Entry Fields (user input) -->
             <div id="entry_fields">
+
                 <div class="textfield">
                     <label for="entry_title">Title:</label>
                     <input type="text" id="entry_title" name="entry_title">
@@ -74,7 +84,7 @@
 
                 <div class="textfield">
                     <label for="date">Date:</label>
-                    <input type="date" id="date" name="date">             
+                    <input type="date" id="entry_date" name="date">             
                 </div>
 
                 <div class="textfield">

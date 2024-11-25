@@ -28,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to view and edit entries in their diary">
-    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
     <script src="assets/entry_script.js" defer></script>
     <title>Diary View/Edit Entry</title>
 </head>
@@ -71,9 +71,18 @@
 <body>
 
     <div class="banner_container"> 
-            <!-- insert the header and navigation bar -->
-            <?php include("header.php");?>
-            <?php include("nav_bar.php");?>
+        <!-- insert the header -->
+        <?php include("header.php");?>
+
+        <div id="logout_nav_container" class="account_nav_container">
+            <nav id="logout_nav" class="account_nav">
+                <a href="session.php?id=logout">Logout</a>
+            </nav>
+        </div>
+
+        <!-- include navigation bar -->
+        <?php include("nav_bar.php");?>
+
     </div>
     
     <div class="page_container">
@@ -90,24 +99,23 @@
             <!-- Main Entry Fields (retrieved from DB)-->
             <div class="entry_fields">
                 <div class="textfield">
-                <label for="entry_title">Title:</label>
-                <input type="text" id="entry_title" name="entry_title" value = "<?php echo $result['title']; ?>"></input>
+                    <label for="entry_title">Title:</label>
+                    <input type="text" id="entry_title" name="entry_title" value = "<?php echo $result['title']; ?>"></input>
                 </div>
 
-                    <div class="textfield">
+                <div class="textfield">
                     <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" value = "<?php echo $result['date']; ?>">             
-                    </div>
+                    <input type="date" id="entry_date" name="date" value = "<?php echo $result['date']; ?>">             
+                </div>
 
-                    <div class="textfield">
+                <div class="textfield">
                     <label for="entry">Entry:</label>
                     <textarea id="entry" name="entry" rows="10" cols="50"><?php echo $result['entry_text']; ?></textarea>
-                    </div>
                 </div>
+            </div>
 
             <!-- Mood Selection (retrieved from DB) -->
-            <div id="mood_bar">
-<!-- TODO should be "radio_wrapper" for consistency -->                 
+            <div id="mood_bar">            
                 <div class="radio_wrapper"> 
                     <!-- if this mood matches DB record, mark it as checked -->
                     <input type="radio" id="amazing" name="mood" value="amazing"

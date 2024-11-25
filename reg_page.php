@@ -37,7 +37,7 @@ TODO
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Stephanie Prystupa-Maule">
     <meta name="description" content="Registration Page for diary site">
-    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
     <script src="assets/reg_script.js" defer></script>
     <title>Diary Registration</title>
 </head>

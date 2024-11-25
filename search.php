@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daraja Williams">        
     <meta name="description" content="Allows users to search for past entries">
-    <link rel="stylesheet" type="text/css" href="assets/style_working.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
     <title>Search Entries Page</title>
 </head>
 
@@ -81,9 +81,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure we submit the data
 <body>
 
     <div class="banner_container"> 
-        <!-- insert the header and navigation bar -->
+        <!-- insert the header -->
         <?php include("header.php");?>
+
+        <div id="logout_nav_container" class="account_nav_container">
+            <nav id="logout_nav" class="account_nav">
+                <a href="session.php?id=logout">Logout</a>
+            </nav>
+        </div>
+
+        <!-- include navigation bar -->
         <?php include("nav_bar.php");?>
+
     </div>
 
     <div #id="search_container" class="page_container">

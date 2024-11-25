@@ -7,7 +7,7 @@
 <html lang="en">
 
 <body>
-  <!-- footer for all pages-->
+  <!-- header for all pages-->
   <header> 
     <h1 id="title">Smart Diary</h1>
   </header>

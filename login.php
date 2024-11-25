@@ -14,6 +14,7 @@ TODO
     session_start();
     require_once('database.php');
     $db = db_connect();
+    $message=''; //initaize error message
 ?>
 
 <head>
@@ -26,6 +27,21 @@ TODO
 </head>
 
 <?php
+    if (isset($_GET['status'])) {
+        $status = $_GET['status'];
+        switch ($status) {
+            case 'out':
+                $message = "You have been logged out";
+                break;
+            case 'reg':
+                $message = "You have been registered successfully";
+                break;
+            default:
+                $message = "";
+                break;
+        }
+    }
+
     if (isset($_POST['username']) && isset($_POST['pass'])) {
         $valid = false;
         $username = $_POST['username']; //access username
@@ -47,7 +63,7 @@ TODO
         }
 
         if (!$valid) {
-            echo "<h3>Invalid username or password</h3>";
+            $message = "Invalid username or password";
         }
 }
 ?>
@@ -66,19 +82,15 @@ TODO
 
     <div id="login_container" class="page_container">
 
-        <!-- Check if user was redirected from the logout page, display logout message -->
-        <?php
-            if (isset($_GET['id']) && $_GET['id'] == "out") { 
-                echo "<h4>You have been logged out</h4>";
-            }
-        ?>
-
         <!-- Form to Login -->
         <form name="form" action="login.php" method="POST" id="login_form" class="page_form">
 <!-- TODO test if form name is necessary, login and reg page-->
             
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">Login</h2> 
+
+            <!-- Display a status message if one is set -->
+            <?php echo "<p class=\"warning\">$message</p>"; ?>
 
             <!-- Main Entry Fields (user input) -->
             <div class="textfield">

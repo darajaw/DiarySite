@@ -16,6 +16,26 @@
     //call file to start session
     require_once('session.php');
     confirm_login();
+
+    $message = ''; //initialize status message
+
+    if (isset($_GET['status'])){
+        
+        switch($_GET['status']){ 
+            case 'success':
+                $message = "Your entry has been logged!";
+                break;
+            case 'error':
+                $message = "There has been an error with your entry. Please try again.";
+                break;
+            case 'dupli':
+                $message = "There is already an entry on this date.";
+                break;
+            default:
+                $message = "";
+                break;
+        }
+    }
 ?>
 
 <head>
@@ -38,23 +58,12 @@
 
     <div class="page_container">
 
-        <!-- Check if user has been redirected from new_entry page, display confirm or error message -->
-        <?php
-            if (isset($_GET['id']) && $_GET['id'] == "done") { 
-                //submission confirmation message
-                echo "<h4>Your entry has been logged!</h4>";
-            }
-            else if (isset($_GET["id"]) && $_GET["id"] == "error") {
-                //submission error message
-                echo "<h4>There has been an error with your entry.</h4>";
-            }
-        ?>
-
         <!-- Form to create new diary entry -->
         <form action="create.php" method="POST" id="entry_form" class="page_form" onsubmit="return validate();">
 
             <!-- Subheading specific to this page -->
             <h2 class="page_heading">New Entry</h2> 
+            <?php echo "<p class=\"warning\">$message</p>"; ?>
 
             <!-- Main Entry Fields (user input) -->
             <div id="entry_fields">

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // don't need following line?, no need to show user details by id after they register
     //$id = mysqli_insert_id($db); //the mysqli_insert_id() function returns the id
 
-    header("Location login.php?status=reg"); //will need to change this to login page, once created
+    header("Location: login.php?status=reg"); //will need to change this to login page, once created
 }
 else {
     header("Location: reg_page.phpstatus=error");

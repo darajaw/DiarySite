@@ -25,7 +25,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     $mood_id = (int)$mood_fetch['mood_id']; //retrieve the mood ID from the resulting row
 
     //query to insert the form info into the database
+    //$sql = "INSERT INTO entries (user_id, date, title, entry_text, entry_mood) VALUES ('9','2024-11-28','browser test 4','dg','3')";
     $sql = "INSERT INTO entries (user_id, date, title, entry_text, entry_mood) VALUES ('$user_id','$date','$title','$entry','$mood_id')";
+    
+    
+    //echo "<script> alert( \' $sql \') ;</script> ";
+    
     mysqli_query($db, $sql); //run query on the database
 
     //redirect to new entry page with confirmation ID

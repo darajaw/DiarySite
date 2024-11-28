@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div id="logout_nav_container" class="account_nav_container">
             <nav id="logout_nav" class="account_nav">
-                <a href="session.php?id=logout">Logout</a>
+            <a href="../database/session.php?id=logout">Logout</a>
             </nav>
         </div>
 

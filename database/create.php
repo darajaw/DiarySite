@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { //make sure data was posted
     $entry = $_POST['entry'];
     $mood = $_POST['mood'];
     
-    check_duplicate($db, $date);
+    check_duplicate($db, $user_id, $date);
 
     $mood_sql = "SELECT mood_id FROM moods WHERE mood = \"$mood\""; //query to get the mood ID that matches the submitted mood
     $mood_row = mysqli_query($db, $mood_sql); //run query on database
@@ -36,12 +36,14 @@ else {
   header("Location:  ../pages/new_entry.php?status=error");
 }
 
-function check_duplicate($db, $date){
-    
+function check_duplicate($db, $user_id, $date){
+  /*  
   $entry_sql = "SELECT * FROM entries"; //query to retrieve list of all users
+  */
+  $entry_sql = "SELECT * FROM entries WHERE user_id = $user_id"; //query to retrieve all of the user's entries
   $entry_row = mysqli_query( $db, $entry_sql ); //run query on database
  
-  //compare new user to each existing user to check for duplicates
+  //compare new entry to each existing entry to check for date duplicates from the same user
   while ($entry = mysqli_fetch_array($entry_row)){
     if ( $entry['date'] == $date ) {
         //date error if date is duplicate

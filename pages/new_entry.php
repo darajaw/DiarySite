@@ -22,7 +22,7 @@
                 $message = "There has been an error with your entry. Please try again.";
                 break;
             case 'dupli':
-                $message = "There is already an entry on this date.";
+                $message = "You already have an entry on this date.";
                 break;
             default:
                 $message = "";

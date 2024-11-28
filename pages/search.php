@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mood = $_POST['mood'];
 
     //search with no dates
-    $entry_search = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id'";
+    $entry_search = "SELECT entry_id,date,title FROM entries WHERE user_id = '$user_id' ORDER BY date";
 
     //search with a start date only
     if (!empty($start_date) && empty($end_date)){
